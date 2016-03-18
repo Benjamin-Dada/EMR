@@ -5,9 +5,8 @@
             <img src="{{  asset('images/RecommendImage.gif') }}" height="50" width="50" style="border-radius:25px;" />
         </li>
         <li><a href="#"> @ </a></li>
-        <li class="active"><a href="#">EMR<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">History</a></li>
-        <li><a href="#">Projects</a></li>
+        <li class="active"><a href="#">Patients<span class="sr-only">(current)</span></a></li>
+        <li><a href="route('patients.index')">Patient List</a></li>
         <li><a href="#">Vitals</a></li>
     </ul>
     <ul class="nav nav-sidebar">
