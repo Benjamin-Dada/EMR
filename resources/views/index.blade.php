@@ -21,7 +21,7 @@
 
             <ul>
                 <li>Dada Benjamin 12ch014339</li>
-                <li>Dolapo Iyanu  10cf010324</li>
+                <li>Dolapo Iyanu 10cf010324</li>
             </ul>                              
         </div>
     </div>
