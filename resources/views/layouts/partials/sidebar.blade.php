@@ -4,7 +4,7 @@
         <li style="margin-left:20px;">
             <img src="{{  asset('images/RecommendImage.gif') }}" height="50" width="50" style="border-radius:25px;" />
         </li>
-        <li><a href="#"> @ {{ Auth::user()->name }}  </a></li>
+        <li><a href="#"> @ </a></li>
         <li class="active"><a href="#">EMR<span class="sr-only">(current)</span></a></li>
         <li><a href="#">History</a></li>
         <li><a href="#">Projects</a></li>
