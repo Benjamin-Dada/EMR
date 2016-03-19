@@ -34,6 +34,7 @@ class CreatePatientsVitalsTable extends Migration
 
         });
 
+        
     }
 
     /**
