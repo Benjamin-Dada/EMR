@@ -4,18 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Patient;
 
+use App\PatientVitals;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 class VitalsController extends Controller
 {
-    public function index(Patient $patient_id)//type-hinting therefore the variable has to be the same as the wildcard in the route
+    public function index(Patient $patient)//type-hinting therefore the variable has to be the same as the wildcard in the route
     {	
-    	return view('patients.vitals.form', compact('patient_id'));//this should 
+    	//return $patient_id;
+    	return view('patients.vitals.form', compact('patient'));//this should 
     }
 
-    public function store()
+    public function store(Request $request)
     {
     	$this->validate($request, [
             'temp'     => 'required',
@@ -30,20 +33,23 @@ class VitalsController extends Controller
         ]);
 
         $patient = new Patient;
-        $patient->temp   = $request->input('temp');
-        $patient->weight = $request->input('weight');
-        $patient->height    = $request->input('height');
-        $patient->bp_sys = $request->input('bp_sys');
-        $patient->bp_dias = $request->input('bp_dias');
-        $patient->head_cir = $request->input('head_cir');
-        $patient->waist_cir = $request->input('waist_cir');
-        $patient->bmi = $request->input('bmi');
+        $patientVitals = new PatientVitals;
+
+        $patientVitals->patient_id = $request->input('id');
+        $patientVitals->temp   = $request->input('temp');
+        $patientVitals->weight = $request->input('weight');
+        $patientVitals->height = $request->input('height');
+        $patientVitals->bp_sys = $request->input('bp_sys');
+        $patientVitals->bp_dias = $request->input('bp_dias');
+        $patientVitals->head_cir = $request->input('head_cir');
+        $patientVitals->waist_cir = $request->input('waist_cir');
+        $patientVitals->bmi = $request->input('bmi');
 
         /*$patient->id = Auth::user()->id;*/
+    
+        $patientVitals->save();
 
-        $patient->save();
-
-        return redirect()->route('/')->with('info','New Patient Vital has been created successfully');  
+        return redirect()->back()->with('info','New Patient Vital has been created successfully');  
         }
 
     }

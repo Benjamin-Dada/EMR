@@ -28,7 +28,7 @@ Route::group(['middleware' => 'web'], function () {
 	'uses'=>'\App\Http\Controllers\HomeController@index',
 	'as'=>'index'
 	]);
-	
+
     Route::auth();
     /*Route::group(['prefix' => 'doctor'], function () {
     Route::get('patients', function ()    {
@@ -60,11 +60,12 @@ Route::group(['middleware' => 'web'], function () {
 */
     Route::resource('patients', 'PatientController');
 
-    Route::get('patients/{patient_id}/vitals',[
+    Route::get('patients/{patient}/vitals',[
     	'uses'=>'\App\Http\Controllers\VitalsController@index'
     	]);
 
-    Route::post('patients/{patient_id}/vitals',[
-    	'uses'=>'\App\Http\Controllers\VitalsController@store'
+    Route::post('patients/{patient}/vitals',[
+    	'uses'=>'\App\Http\Controllers\VitalsController@store',
+    	'as'=>'vitals.store'
     	]);
 });

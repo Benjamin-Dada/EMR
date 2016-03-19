@@ -4,9 +4,10 @@
 
 @include('layouts.partials.sidebar')
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-@if($patient_id)
+@if($patient)
     @include('layouts.partials.alerts')
-    <h1 class="page-header"> {{$patient_id->name}} </h1>
+    <h1 class="page-header"> {{$patient->name}} </h1>
+    {{$patient->id}}
 
 
 <div class="container"> 
@@ -15,7 +16,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Enter Patient Vitals Here</div>
                     <div class="panel-body">
-                        <form class="form-vertical" role="form" method="post" action="/vitals/store">
+                        <form class="form-vertical" role="form" method="post" action="{{route('vitals.store',$patient->id)}}">
                         <div class="form-group{{ $errors->has('temp') ? ' has-error' : '' }}">
                             <label for="temp" class="control-label">Temp</label>
                             <input type="text" name="temp" class="form-control" id="temp" value="{{ old('temp') ?: '' }}">
@@ -92,6 +93,7 @@
                             <button type="submit" class="btn btn-default">Sign up</button>
                         </div>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="id" value="{{$patient->id}}">
                     </form>
                 </div>
             </div>
