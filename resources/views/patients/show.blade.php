@@ -23,7 +23,7 @@
               <li>Ability for a Nurse to enter patientt vitals</li> 
               <li>Ability for a pharmacist to confirm drug prescription</li> 
               </ul>
-
+              <a class="btn btn-info" href="{{$patient->id}}/vitals">Patient Vitals</a>
          </div>
     </div>
       @endif

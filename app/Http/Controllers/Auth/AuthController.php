@@ -28,7 +28,8 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    
+    //protected $redirectTo = '/';
 
     /**
      * Create a new authentication controller instance.
@@ -38,6 +39,16 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+    }
+
+    protected function authenticated( $user)
+    {
+
+        if($user->id == 1) {
+            return redirect('/');
+        }
+
+        return redirect('patients');
     }
 
     /**

@@ -14,15 +14,11 @@ class CreateConsultationNotesTable extends Migration
     {
         Schema::create('consultation_notes',function (Blueprint $table)
         {
-           $table->increments('id')->unsigned();
-/*           $table->integer('patients_id');
-*/           $table->string('notes');
-           $table->string('prescription'); 
-           $table->timestamps();
-
-         /*  $table->foreign('patients_id')
-                 ->references('id')->on('patients_reg')
-                 ->onDelete('cascade');*/
+            $table->increments('id')->unsigned();
+            $table->integer('patient_id')->unsigned();
+            $table->string('notes');
+            $table->string('prescription'); 
+            $table->timestamps();
         });
     }
 

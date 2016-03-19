@@ -29,6 +29,41 @@ Route::group(['middleware' => 'web'], function () {
 	'as'=>'index'
 	]);
     Route::auth();
-
+    /*Route::group(['prefix' => 'doctor'], function () {
+    Route::get('patients', function ()    {
+        // Matches The "/admin/users" URL
+    	});
+	});
+	Route::group(['prefix' => 'nurse'], function () {
+    Route::get('patients', function ()    {
+        // Matches The "/admin/users" URL
+    	});
+	});
+	Route::group(['prefix' => 'lab'], function () {
+    Route::get('patients', function ()    {
+        // Matches The "/admin/users" URL
+    	});
+	});
+	Route::group(['prefix' => 'frontdesk'], function () {
+    Route::get('patients', function ()    {
+        // Matches The "/admin/users" URL
+    	});
+	});
+	*/
+	/*Route::group(['prefix' => 'pharm'], function () {
+    Route::get('patients/{patient_id}/vitals', [
+    	'use'=>'\App\Http\Controllers\VitalsController@index',
+    	'as'=>'patient.vitals'
+    	]);
+	});
+*/
     Route::resource('patients', 'PatientController');
+
+    Route::get('patients/{patient_id}/vitals',[
+    	'uses'=>'\App\Http\Controllers\VitalsController@index'
+    	]);
+
+    Route::post('patients/{patient_id}/vitals',[
+    	'uses'=>'\App\Http\Controllers\VitalsController@store'
+    	]);
 });

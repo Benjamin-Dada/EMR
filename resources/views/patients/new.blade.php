@@ -75,7 +75,5 @@
         </div>
     </div>
  </div>
-
-        
 @stop
 

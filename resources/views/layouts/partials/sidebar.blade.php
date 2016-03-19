@@ -1,8 +1,7 @@
-
 <div class="col-sm-3 col-md-2 sidebar">
     <ul class="nav nav-sidebar">
         <li style="margin-left:20px;">
-            <img src="{{  asset('images/RecommendImage.gif') }}" height="50" width="50" style="border-radius:25px;" />
+            <img src="{{  asset('images/passport.png') }}" height="50" width="50" style="border-radius:25px;" />
         </li>
         <li><a href="#"> @ </a></li>
         <li class="active"><a href="#">Patients<span class="sr-only">(current)</span></a></li>

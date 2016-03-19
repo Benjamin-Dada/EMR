@@ -5,7 +5,8 @@
 @if(!Auth::check())
 <div class="container">
     <div class="row">
-     <h1>Please Log in</h1>
+     <h1>Welcome to my EMR</h1>
+     <p>Please log in</p>
     </div>
 </div>
 @endif

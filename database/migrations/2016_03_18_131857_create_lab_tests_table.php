@@ -15,8 +15,8 @@ class CreateLabTestsTable extends Migration
         Schema::create('lab_tests', function (Blueprint $table)
         {
             $table->increments('id')->unsigned();
-            /*$table->integer('patients_id');
-*/            $table->integer('ua');
+            $table->integer('patient_id')->unsigned();
+            $table->integer('ua');
             $table->integer('blood_count');
             $table->integer('pcv');
             $table->integer('esr')->nullable();
@@ -25,9 +25,6 @@ class CreateLabTestsTable extends Migration
             $table->integer('hb_ag_test')->nullable();
             $table->timestamps();
             
-            /*$table->foreign('patients_id')
-                  ->references('id')->on('patients_reg')
-                  ->onDelete('cascade');*/
 
         });
     }

@@ -2,7 +2,7 @@
 
 namespace App;
 
-use PatientVitals;
+/*use App\PatientVitals;*/
 use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
@@ -16,6 +16,6 @@ class Patient extends Model
 
     public function patientvitals()
     {
-    	return $this->hasOne(Patient::class);
+    	return $this->hasOne('App\PatientVitals');
     }
 }

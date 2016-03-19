@@ -2,14 +2,20 @@
 
 namespace App;
 
-use Patient;
 use Illuminate\Database\Eloquent\Model;
 
 class PatientVitals extends Model
 {
+
+	protected $table = 'patients_vitals';
+
+	protected $fillable = ['temp','weight', 'height',
+						  'bp_sys', 'bp_dias', 'pulse','oxy_sat',
+						  'head_cir', 'waist_cir', 'BMI'
+	];
 	public function patient()
 	    {
-	    	return $this->belongsTo(Patient::class);
+	    	return $this->belongsTo('App\Patient');
 	    }    
 
 }

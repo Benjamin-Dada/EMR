@@ -15,8 +15,8 @@ class CreatePatientsVitalsTable extends Migration
         Schema::create('patients_vitals', function (Blueprint $table)
         {
             $table->increments('id')->unsigned();
-/*            $table->integer('patients_id');
-*/          $table->integer('temp');
+            $table->integer('patient_id')->unsigned();
+            $table->integer('temp');
             $table->integer('weight');
             $table->integer('height');
             $table->integer('bp_sys')->nullable();
@@ -28,10 +28,10 @@ class CreatePatientsVitalsTable extends Migration
             $table->integer('BMI')->nullable();
             $table->timestamps();
             
-            /*$table->foreign('patients_id')
+            /*$table->foreign('patient_id')
                   ->references('id')->on('patients_reg')
-                  ->onDelete('cascade');*/
-
+                  ->onDelete('cascade');
+*/
         });
 
         

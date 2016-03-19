@@ -57,11 +57,15 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                 </ul>
+
+
             </div>
         </div>
     </nav>
     <!-- @include('layouts.partials.sidebar') -->
-@yield('content')
+
+    @yield('content')
+
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>

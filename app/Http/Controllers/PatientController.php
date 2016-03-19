@@ -56,9 +56,10 @@ class PatientController extends Controller
         $patient->address = $request->input('address');
         $patient->email = $request->input('email');
         $patient->phone = $request->input('phone');
-        $patient->id = Auth::user()->id;
+        /*$patient->id = Auth::user()->id;*/
 
         $patient->save();
+
 
         return redirect()->route('patients.index')->with('info','New Patient has been created successfully');    }
 
