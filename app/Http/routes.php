@@ -28,6 +28,7 @@ Route::group(['middleware' => 'web'], function () {
 	'uses'=>'\App\Http\Controllers\HomeController@index',
 	'as'=>'index'
 	]);
+	
     Route::auth();
     /*Route::group(['prefix' => 'doctor'], function () {
     Route::get('patients', function ()    {
