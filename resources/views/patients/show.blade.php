@@ -13,17 +13,19 @@
     <div class="container">
          <div class="row">
             <p>Here is the show blade</p>
-                <button class="btn btn-circle btn-danger delete"
-                          data-action="{{ url('projects/' . $project->id) }}"
-                          data-token="{{csrf_token()}}">
-                    <i class="fa fa-trash-o"></i>Delete
-                </button>
+              We would provide:
+              <ul>
+              <li>Ability for a doctor to add consultation notes</li> 
+              <li>Ability for a doctor to request lab and radio test</li> 
+              <li>Ability for a doctor to prescribe drug</li>
+              </ul>
+              <ul>
+              <li>Ability for a Nurse to enter patientt vitals</li> 
+              <li>Ability for a pharmacist to confirm drug prescription</li> 
+              </ul>
+
          </div>
     </div>
-        <hr>
-        <div class="row">
-        <!-- @include('comments.form') -->
-        </div>
       @endif
 </div>
 @stop

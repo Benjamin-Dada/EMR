@@ -6,7 +6,7 @@
         </li>
         <li><a href="#"> @ </a></li>
         <li class="active"><a href="#">Patients<span class="sr-only">(current)</span></a></li>
-        <li><a href="route('patients.index')">Patient List</a></li>
+        <li><a href="{{ route('patients.index') }}">Patient List</a></li>
         <li><a href="#">Vitals</a></li>
     </ul>
     <ul class="nav nav-sidebar">

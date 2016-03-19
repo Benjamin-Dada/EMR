@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
 use Auth;
 use App\Patient;
-use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
@@ -58,7 +60,7 @@ class PatientController extends Controller
 
         $patient->save();
 
-        return redirect()->route('patients.index')->with('info','Your Project has been created successfully');    }
+        return redirect()->route('patients.index')->with('info','New Patient has been created successfully');    }
 
     /**
      * Display the specified resource.
@@ -68,6 +70,9 @@ class PatientController extends Controller
      */
     public function show($id)
     {
+        $patient = Patient::find($id);
+
+        return view('patients.show')->withPatient($patient);
 
     }
 
@@ -91,7 +96,23 @@ class PatientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $patient = Patient::findOrFail($id);
+        $this->validate($request, [
+            'name'     => 'required|min:3',
+            'dob' => 'required|date|before:today',
+            'address'    => 'required|min:10',
+            'status'   => 'required',
+            'phone' => 'required|min:11',
+            'email' => 'required|email'
+        ]);
+
+            $values = $request->all();
+
+            $patient->fill($values)->save();
+
+            return redirect()->back()
+                            ->with('info','Your Project has been updated successfully');
+
     }
 
     /**
@@ -102,6 +123,9 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $patient = Patient::findOrFail($id);
+        $patient->delete();
+
+        return redirect()->route('patients.index')->with('info', 'Patient deleted successfully');
     }
 }
