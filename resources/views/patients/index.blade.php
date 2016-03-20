@@ -20,9 +20,7 @@
         <a class="btn btn-info" href="{{ route('patients.create') }}">Create New Patient</a>
     </h1>
 
-<div class="container">
-	@if($patient)
-    <div class="row">
+	@if($patient)      
     	<table class="table table-striped table-bordered">
 		    <thead>
 		        <tr>
@@ -47,16 +45,13 @@
     		</tr>
          	@endforeach       
     		</tbody>
-    		</table>
-                                  
-    </div>
-    @endif
+    	</table>
+@endif
 
     @if($patient->isEmpty())
          <h3>There are currently no Patients</h3>
     @endif
 
-    </div>
 </div>
 @endif
 @endsection
