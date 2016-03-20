@@ -62,7 +62,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('patients/{patient}/vitals',[
     	'uses'=>'\App\Http\Controllers\VitalsController@index'
-    	]);
+    ]);
 
     Route::post('patients/{patient}/vitals',[
     	'uses'=>'\App\Http\Controllers\VitalsController@store',
