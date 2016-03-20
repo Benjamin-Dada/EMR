@@ -7,8 +7,6 @@
 @if($patient)
     @include('layouts.partials.alerts')
     <h1 class="page-header"> {{$patient->name}} </h1>
-    {{$patient->id}}
-
 
 <div class="container"> 
     <div class="row">
