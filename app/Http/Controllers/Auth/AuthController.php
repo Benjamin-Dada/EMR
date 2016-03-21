@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
+use Auth;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -41,14 +43,27 @@ class AuthController extends Controller
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
-    protected function authenticated( $user)
+    protected function authenticated(Request $request, User $user)
     {
+        $user = $request->user();
 
         if($user->id == 1) {
-            return redirect('/');
+            return redirect('patients');
         }
+        elseif ($user->id ==2) {
+            return redirect('patients');
+        }
+        elseif ($user->id ==3) {
+            return redirect('patients');
 
-        return redirect('patients');
+        }
+        elseif ($user->id ==4) {
+            return redirect('patients');
+
+        }
+        else{
+            return redirect('patients');
+        }
     }
 
     /**
