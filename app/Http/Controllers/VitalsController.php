@@ -51,7 +51,12 @@ class VitalsController extends Controller
 
         return redirect()->back()->with('info','New Patient Vital has been created successfully');  
         }
+/*        public function edit(Patient $patient)
+        {
+            $patient = Patient::find($id);
+            return view('patients.edit',compact('patient'));   
+        }
+*/    }
 
-    }
 
     
