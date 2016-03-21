@@ -45,26 +45,28 @@ class AuthController extends Controller
 
     protected function authenticated(Request $request, User $user)
     {
-        $user = $request->user();
+        return redirect('patients');
+        /*        $user = $request->user();
 
-        if($user->id == 1) {
-            return redirect('patients');
-        }
-        elseif ($user->id ==2) {
-            return redirect('patients');
-        }
-        elseif ($user->id ==3) {
-            return redirect('patients');
+                if($user->id == 1) {
+                    return redirect('patients');
+                }
+                elseif ($user->id ==2) {
+                    return redirect('patients');
+                }
+                elseif ($user->id ==3) {
+                    return redirect('patients');
 
-        }
-        elseif ($user->id ==4) {
-            return redirect('patients');
+                }
+                elseif ($user->id ==4) {
+                    return redirect('patients');
 
-        }
-        else{
-            return redirect('patients');
-        }
-    }
+                }
+                else{
+                    return redirect('patients');
+                }
+        */    
+}
 
     /**
      * Get a validator for an incoming registration request.
