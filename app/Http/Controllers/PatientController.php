@@ -45,7 +45,7 @@ class PatientController extends Controller
             'dob' => 'required|date|before:today',
             'address'    => 'required|min:10',
             'status'   => 'required',
-            'phone' => 'required|min:11',
+            'phone' => '',
             'email' => 'required|email'
         ]);
 
@@ -72,56 +72,55 @@ class PatientController extends Controller
     public function show($id)
     {
         $patient = Patient::find($id);
-
         return view('patients.show')->withPatient($patient);
-
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        /**
+         * Show the form for editing the specified resource.
+         *
+         * @param  int  $id
+         * @return \Illuminate\Http\Response
+         */
+        public function edit($id)
+        {
+            $patient = Patient::find($id);
+            return view('patients.edit')->withPatient($patient);   
+        }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        $patient = Patient::findOrFail($id);
-        $this->validate($request, [
-            'name'     => 'required|min:3',
-            'dob' => 'required|date|before:today',
-            'address'    => 'required|min:10',
-            'status'   => 'required',
-            'phone' => 'required|min:11',
-            'email' => 'required|email'
-        ]);
+        /**
+         * Update the specified resource in storage.
+         *
+         * @param  \Illuminate\Http\Request  $request
+         * @param  int  $id
+         * @return \Illuminate\Http\Response
+         */
+        public function update(Request $request, $id)
+        {
+            $patient = Patient::findOrFail($id);
+            
+            $this->validate($request, [
+                'name'     => 'required|min:3',
+                'dob' => 'required|date|before:today',
+                'address'    => 'required|min:10',
+                'status'   => 'required',
+                'phone' => 'required|min:11',
+                'email' => 'required|email'
+            ]);
 
-            $values = $request->all();
+                $values = $request->all();
 
-            $patient->fill($values)->save();
+                $patient->fill($values)->save();
 
-            return redirect()->back()
-                            ->with('info','Your Project has been updated successfully');
+                return redirect()->back()->with('info','Your Patient data has been updated successfully');
 
-    }
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+        /**
+         * Remove the specified resource from storage.
+         *
+         * @param  int  $id
+         * @return \Illuminate\Http\Response
+         */
     public function destroy($id)
     {
         $patient = Patient::findOrFail($id);
