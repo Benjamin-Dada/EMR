@@ -24,9 +24,14 @@ Route::group(['middleware' => 'web'], function () {
         'as'=>'vitals.index'
     ]);
 
-    Route::post('patients/{patient}/vitals',[
+    Route::post('patients/{patient}',[
         'uses'=>'\App\Http\Controllers\VitalsController@store',
         'as'=>'vitals.store'
+    ]);
+
+    Route::put('patients/{patient}',[
+        'uses'=>'\App\Http\Controllers\PatientController@update',
+        'as'=>'patients.update'
     ]);
 
     Route::group(['prefix' => 'doctor'], function () {
