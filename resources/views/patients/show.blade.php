@@ -12,8 +12,8 @@
 
     <div class="container">
          <div class="row">
-            <p>Here is the show blade</p>
-              We would provide:
+            <p>Here is the show of a particular patient blade</p>
+              It would provide:
               <ul>
               <li>Ability for a doctor to add consultation notes</li> 
               <li>Ability for a doctor to request lab and radio test</li> 
@@ -23,9 +23,23 @@
               <li>Ability for a Nurse to enter patientt vitals</li> 
               <li>Ability for a pharmacist to confirm drug prescription</li> 
               </ul>
-              <a class="btn btn-info" href="{{$patient->id}}/vitals">Patient Vitals</a>
+              @if(Auth::user()->id == 1)
+              <p><a href="{{route('patients.edit',$patient->id)}}" class="btn btn-primary">Edit Registration Details</a></p>
+              @endif
+              @if(Auth::user()->id == 2)
+              <p><a class="btn btn-info" href="{{$patient->id}}/vitals">Enter Patient vitals</a></p>
+              @endif
+              @if(Auth::user()->id == 3)
+              <p><a href="#" class="btn btn-default">Add Consultation Note and Prescription</a></p>
+              @endif
+              @if(Auth::user()->id == 4)
+              <p><a href="#" class="btn btn-default">Add Test Result</a></p>
+              @endif
+              @if(Auth::user()->id == 5)
+              <p><a href="#" class="btn btn-default">Confirm Drug Dispense </a></p>
+              @endif
          </div>
     </div>
       @endif
 </div>
-@stop
+@endsection
