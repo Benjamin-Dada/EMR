@@ -1,10 +1,10 @@
 @extends('layouts.master')
  
 @section('content')
- 
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <h3>Register Patient Here</h3>
+    @include('layouts.partials.sidebar')
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+             @include('layouts.partials.alerts')
+        <h1 class="page-header">Patient Registration</h1>
             <div class="panel panel-default">
                 <div class="panel-heading">Basic Contact</div>
                     <div class="panel-body">
@@ -75,5 +75,5 @@
         </div>
     </div>
  </div>
-@stop
+@endsection
 
