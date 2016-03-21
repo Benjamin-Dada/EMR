@@ -33,7 +33,13 @@
     <div class="row">
         @include('layouts.partials.sidebar')
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Dashboard</h1>
+            
+            <h1 class="page-header">Dashboard <span>
+                <div class="form-group">
+                    <input type="text" id="search-input" class="form-control" placeholder="Search"></input>
+                </div>
+            </span></h1>
+            
             <h2 class="sub-header">Patients <span style="float: right;"><a class="btn btn-info" href="{{ route('patients.create') }}">New Patient</a></span></h2>                    
         </div>
     </div>
