@@ -17,7 +17,6 @@
     @include('layouts.partials.alerts')
     <h1 class="page-header">
         Patients 
-        <a class="btn btn-info" href="{{ route('patients.create') }}">Create New Patient</a>
     </h1>
 
 	@if($patient)      
@@ -34,7 +33,7 @@
 		    @foreach ($patient as $pat)
     		<tr>
     			<td>{{$pat->id }}.</td>
-    			<td><a href="{{ route('patients.show', Auth::user()->id) }}">{{$pat->name}}</a></td>
+    			<td><a href="{{ route('patients.show', $pat->id) }}">{{$pat->name}}</a></td>
     			<td>{{$pat->email}}</td>
     			<td><button class="btn btn-circle btn-danger delete"
                           data-action="{{ url('patients/' . $pat->id) }}"
@@ -46,12 +45,13 @@
          	@endforeach       
     		</tbody>
     	</table>
-@endif
+    @endif
 
     @if($patient->isEmpty())
-         <h3>There are currently no Patients</h3>
+    <h3>There are currently no Patients <a class="btn btn-info" href="{{ route('patients.create') }}">Create New Patient</a></h3>
     @endif
 
 </div>
 @endif
 @endsection
+
