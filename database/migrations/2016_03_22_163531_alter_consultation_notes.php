@@ -16,6 +16,7 @@ class AlterConsultationNotes extends Migration
             $table->foreign('patient_id')
                   ->references('id')->on('patients_reg')
                   ->onDelete('cascade');
+            $table->string('prescription')->nullable()->change();
         }
         );  
     }
