@@ -22,12 +22,12 @@ class PatientController extends Controller
     public function index()
     {
         $patient = Patient::all();
-        $doc_id =  User::where('name', 'Doctor')->get(['id'])->first();
-        $did = strval($doc_id); 
+//        $doc_id =  User::where('name', 'Doctor')->get(['id'])->first();
+       // $did = strval($doc_id); 
         
 
         //$data = array('patient' => $patient , 'doc_id' => $doc_id );
-        return view('patients.index', compact('patient', 'doc_id'));  
+        return view('patients.index', compact('patient'));  
 
         }
 

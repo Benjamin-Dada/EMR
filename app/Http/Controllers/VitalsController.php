@@ -18,24 +18,24 @@ class VitalsController extends Controller
     	return view('patients.vitals.form', compact('patient'));//this should 
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $patient_id)
     {
     	$this->validate($request, [
-            'temp'     => 'required',
-            'weight' => 'required',
-            'height'    => 'required',
-            'bp_sys'   => 'required',
-            'bp_dias' => 'required',
-            'oxy_sat' => 'required',
-            'head_cir' => 'required',
-            'waist_cir' => 'required',
-            'bmi' => 'required'
+            'temp'     => 'required|Numeric',
+            'weight' => 'required|Numeric',
+            'height'    => 'required|Numeric',
+            'bp_sys'   => 'required|Numeric',
+            'bp_dias' => 'required|Numeric',
+            'oxy_sat' => 'required|Numeric',
+            'head_cir' => 'required|Numeric',
+            'waist_cir' => 'required|Numeric',
+            'bmi' => 'required|Numeric'
         ]);
 
-        $patient = new Patient;
+        //$patient = new Patient;
         $patientVitals = new PatientVitals;
 
-        $patientVitals->patient_id = $request->input('id');
+        $patientVitals->patient_id = $patient_id;
         $patientVitals->temp   = $request->input('temp');
         $patientVitals->weight = $request->input('weight');
         $patientVitals->height = $request->input('height');

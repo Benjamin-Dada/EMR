@@ -15,7 +15,25 @@ Route::group(['middleware' => 'web'], function () {
 	'as'=>'index'
 	]);
 
-//    Route::get('patients/{patient}/notes', 'NotesController@index');
+    Route::auth();
+    
+    Route::resource('patients', 'PatientController');
+
+    Route::get('patients/{patient}/vitals',[
+        'uses'=>'VitalsController@index',
+        'as'=>'vitals.index'
+    ]);
+    
+    Route::post('patients/{patient}',[
+        'uses'=>'VitalsController@store',
+        'as'=>'vitals.store'
+    ]);
+
+    Route::put('patients/{patient}',[
+        'uses'=>'PatientController@update',
+        'as'=>'patients.update'
+    ]);
+
     Route::get('patients/{patient}/notes', [
         'uses'=>'NotesController@index',
         'as' => 'notes.index'
@@ -33,32 +51,7 @@ Route::group(['middleware' => 'web'], function () {
         'uses'=>'TestController@store',
         'as' => 'test.store'
     ]);
-    Route::auth();
-
-    Route::resource('patients', 'PatientController');
-
-    Route::get('patients/{patient}/vitals',[
-        'uses'=>'VitalsController@index',
-        'as'=>'vitals.index'
-    ]);
-    
-    Route::post('search', ['uses'=>'\App\Http\Controllers\SearchController@index']);
-    
-    Route::post('patients/{patient}',[
-        'uses'=>'VitalsController@store',
-        'as'=>'vitals.store'
-    ]);
-
-    Route::put('patients/{patient}',[
-        'uses'=>'PatientController@update',
-        'as'=>'patients.update'
-    ]);
-/*
-    Route::group(['prefix' => 'doctor'], function () {
-        Route::get('patients', function () {
-                return "Hello I am the doctor's index page";    # code...
-            });
-	});*/
-
+  
+    Route::post('search', ['uses'=>'SearchController@index']);
 
 });

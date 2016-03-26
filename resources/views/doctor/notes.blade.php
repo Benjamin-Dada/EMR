@@ -2,21 +2,21 @@
 
 @section('content')
 @include('layouts.partials.sidebar')
-    <div class="col-sm-9 col-sm-offset-3 col-md-8  col-md-offset-3 main">
+  <div class="col-sm-9 col-sm-offset-3 col-md-8  col-md-offset-3 main">
              @include('layouts.partials.alerts')
-             <div class="col-md-9"> 
+    <div class="col-md-9"> 
         <h1 class="page-header">Consultation</h1>
             <div class="panel panel-default">
                 <div class="panel-heading">Consultation note</div>
-                    <div class="panel-body">
+                   <div class="panel-body">
                     <form class="form-vertical" role="form" method="post" action="{{ route('notes.store',$patient->id) }}">
-
 						<div class="form-group{{ $errors->has('notes') ? ' has-error' : '' }}">
 						<label for="notes" class="control-label">Consultation Notes</label>
 							<textarea name="notes" class="form-control" id="notes" rows="10" cols="10">
 								{{ old('notes') ?: '' }}
 							</textarea>
-							@if ($errors->has('notes'))
+							@if ($errors
+							->has('notes'))
 							<span class="help-block">{{ $errors->first('notes') }}</span>
 							@endif
 						</div>
@@ -36,11 +36,10 @@
                         </div>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-</form>
-</div>
-</div>
-
-</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
 <div class="col-md-3">
 <p> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#labTest">Request Lab test</button></p>
@@ -54,24 +53,24 @@
         <h4 class="modal-title" id="exampleModalLabel">Lab Test Request Form</h4>
       </div>
       <div class="modal-body">
-        <form>
+        <form action="{{route('test.store', $patient->id)}}" method="POST">
           <div class="checkbox">
-		    <label><input type="checkbox" value="PCV"> PCV</label>
+		    <label><input type="checkbox" name="pcv" value="PCV"> PCV</label>
 	      </div>
 	      <div class="checkbox">
-		    <label><input type="checkbox" value="PCV"> PCV</label>
+		    <label><input type="checkbox" name="ua" value="UA"> Urinary Analysis </label>
 	      </div>
 	      <div class="checkbox">
-		    <label><input type="checkbox" value="PCV"> PCV</label>
+		    <label><input type="checkbox" name="blood_count" value="blood_count"> Blood Count </label>
 	      </div>
 	      <div class="checkbox">
-		    <label><input type="checkbox" value="PCV"> PCV</label>
+		    <label><input type="checkbox" name="esr" value="esr"> ESR</label>
 	      </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-primary">Send to Lab</button>
       </div>
     </div>
   </div>

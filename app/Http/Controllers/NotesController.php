@@ -24,7 +24,7 @@ class NotesController extends Controller
             'prescription' => 'required'
         ]);
 
-        $patient = new Patient;
+       // $patient = new Patient;
         $note = new Note;
 
         $note->patient_id = $patient_id;

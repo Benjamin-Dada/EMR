@@ -7,16 +7,16 @@
         </li>
         <li><a href="/"> @ {{Auth::user()->name}}</a></li>
         <li class="active"><a href="{{route('patients.index')}}"><span class="sr-only">(current)</span>Patients</a></li>
-    
+        
+        @if(Auth::user()->name === "Front Desk")
         <li><a href="{{ route('patients.create') }}">New Patient</a></li>
+        @endif
        
     </ul>
-
     <ul class="nav nav-sidebar">
         <li><a href="#">Stats</a></li>
         <li><a href="#">Help</a></li>
         <li><a href="{{url('/logout')}}">Sign Out</a></li>
-    
     </ul>
 </div>
 @endif

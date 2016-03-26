@@ -24,4 +24,8 @@ class Patient extends Model
     	return $this->hasOne('App\Note');
     }
 
+    public function test()
+    {
+        return $this->hasOne('App\Test');
+    }
 }

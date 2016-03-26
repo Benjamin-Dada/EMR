@@ -28,7 +28,7 @@
                     @endif
                     </div>
 
-                    <div class="form-group{{ $errors->has('weight') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('height') ? ' has-error' : '' }}">
                     <label for="height" class="control-label">Height (cm)</label>
                     <input type="text" name="height" class="form-control" id="height">
                     @if ($errors->has('height'))
