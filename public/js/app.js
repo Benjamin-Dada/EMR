@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    $.ajaxSetup({
+            headers: {
+                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+             }
+      });
+
     $("button.delete").on('click', function(e){
         e.preventDefault();
         if ( ! confirm('Are you sure?')) {
@@ -11,6 +17,7 @@ $(document).ready(function() {
             type: 'POST',
             url: action,
             data: { _token: token, _method: 'delete' },
+   
             error: function(msg) {
                alert(msg.responseJSON[0]);
             },
@@ -19,5 +26,25 @@ $(document).ready(function() {
             }
         });
     });
+
    $(".alert").fadeOut(4000);
-});
+
+
+    var timer;
+    window.up = function (){
+        timer = setTimeout(function(){
+            var keywords = $('#search-input').val();
+
+            if (keywords.length>0) {
+
+                $.post('/search', {keywords: keywords}, 
+                    function(markup){
+                        $('#search-result').html(markup);
+                     }); 
+            }
+        }, 500);
+    }
+
+    window.down = function (){clearTimeout(timer);}
+    
+}); 

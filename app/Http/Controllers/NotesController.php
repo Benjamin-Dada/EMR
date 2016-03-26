@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Patient;
+
+use App\Note;
+
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+
+class NotesController extends Controller
+{
+ 	public function index(Patient $patient)
+ 	{
+ 		return view('doctor.notes', compact('patient'));
+ 	}
+
+ 	public function store(Request $request, $patient_id)
+    {
+    	$this->validate($request, [
+            'notes'     => 'required',
+            'prescription' => 'required'
+        ]);
+
+        $patient = new Patient;
+        $note = new Note;
+
+        $note->patient_id = $patient_id;
+        $note->notes   = $request->input('notes');
+        $note->prescription   = $request->input('prescription');
+    
+        $note->save();
+
+        return redirect()->route('patients.index')->with('info','Note has been added');  
+    }
+
+    public function show(){
+
+    }
+}

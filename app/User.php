@@ -18,7 +18,7 @@ class User extends Authenticatable
     /**
      * The attributes excluded from the model's JSON form.
      *
-     * @var array
+     * @var arrayo
      */
     protected $hidden = [
         'password', 'remember_token',

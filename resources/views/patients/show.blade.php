@@ -15,12 +15,11 @@
             <p>Here is the show of a particular patient blade</p>
               It would provide:
               <ul>
-              <li>Ability for a doctor to add consultation notes</li> 
               <li>Ability for a doctor to request lab and radio test</li> 
               <li>Ability for a doctor to prescribe drug</li>
               </ul>
               <ul>
-              <li>Ability for a Nurse to enter patientt vitals</li> 
+              <li>Ability for a Nurse to enter patient vitals</li> 
               <li>Ability for a pharmacist to confirm drug prescription</li> 
               </ul>
               @if(Auth::user()->id == 1)
@@ -30,7 +29,7 @@
               <p><a class="btn btn-info" href="{{$patient->id}}/vitals">Enter Patient vitals</a></p>
               @endif
               @if(Auth::user()->id == 3)
-              <p><a href="#" class="btn btn-default">Add Consultation Note and Prescription</a></p>
+              <p><a href="{{$patient->id}}/notes" class="btn btn-primary">Add Consultation Note and Prescription</a></p>
               @endif
               @if(Auth::user()->id == 4)
               <p><a href="#" class="btn btn-default">Add Test Result</a></p>

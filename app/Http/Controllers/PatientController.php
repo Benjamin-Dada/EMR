@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Auth;
+
+use App\User;
+
 use App\Patient;
 
 use App\Http\Requests;
@@ -19,8 +22,14 @@ class PatientController extends Controller
     public function index()
     {
         $patient = Patient::all();
-        return view('patients.index')->withPatient($patient);
-    }
+        $doc_id =  User::where('name', 'Doctor')->get(['id'])->first();
+        $did = strval($doc_id); 
+        
+
+        //$data = array('patient' => $patient , 'doc_id' => $doc_id );
+        return view('patients.index', compact('patient', 'doc_id'));  
+
+        }
 
     /**
      * Show the form for creating a new resource.
@@ -111,7 +120,7 @@ class PatientController extends Controller
 
                 $patient->fill($values)->save();
 
-                return redirect()->back()->with('info','Your Patient data has been updated successfully');
+                return redirect()->route('patients.index')->with('info','Your Patient data has been updated successfully');
 
         }
 

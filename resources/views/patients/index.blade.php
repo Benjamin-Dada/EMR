@@ -35,10 +35,13 @@
     			<td>{{$pat->id }}.</td>
     			<td><a href="{{ route('patients.show', $pat->id) }}">{{$pat->name}}</a></td>
     			<td>{{$pat->email}}</td>
-    			<td><button class="btn btn-circle btn-danger delete"
+    			<td><a href="/patients/{{ $pat->id }}/edit" class="btn btn-primary">
+                        <i class="fa fa-edit"></i> Edit
+                        </a>
+                    <button class="btn btn-circle btn-danger delete"
                           data-action="{{ url('patients/' . $pat->id) }}"
                           data-token="{{csrf_token()}}">
-                    <i class="fa fa-trash-o"></i>Delete
+                    <i class="fa fa-trash-o"></i> Delete
                 </button>
             	</td>
     		</tr>
@@ -50,6 +53,7 @@
     @if($patient->isEmpty())
     <h3>There are currently no Patients <a class="btn btn-info" href="{{ route('patients.create') }}">Create New Patient</a></h3>
     @endif
+
 
 </div>
 @endif

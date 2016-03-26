@@ -2,7 +2,7 @@
 
 namespace App;
 
-/*use App\PatientVitals;*/
+
 use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
@@ -18,4 +18,10 @@ class Patient extends Model
     {
     	return $this->hasOne('App\PatientVitals');
     }
+
+    public function note()
+    {
+    	return $this->hasOne('App\Note');
+    }
+
 }

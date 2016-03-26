@@ -49,7 +49,7 @@ class VitalsController extends Controller
     
         $patientVitals->save();
 
-        return redirect()->back()->with('info','New Patient Vital has been created successfully');  
+        return redirect()->route('patients.index')->with('info','New Patient vital has been created successfully');  
         }
 /*        public function edit(Patient $patient)
         {
