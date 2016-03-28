@@ -53,7 +53,7 @@
         <h4 class="modal-title" id="exampleModalLabel">Lab Test Request Form</h4>
       </div>
       <div class="modal-body">
-        <form action="{{route('test.store', $patient->id)}}" method="POST">
+     <form action="#" method="POST"> 
           <div class="checkbox">
 		    <label><input type="checkbox" name="pcv" value="PCV"> PCV</label>
 	      </div>
@@ -66,12 +66,13 @@
 	      <div class="checkbox">
 		    <label><input type="checkbox" name="esr" value="esr"> ESR</label>
 	      </div>
-        </form>
-      </div>
-      <div class="modal-footer">
+	       <button type="button" class="btn btn-primary" id="send" >Send to Lab</button>
+       </form>
+    </div>
+<!--       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send to Lab</button>
-      </div>
+        <button type="button" class="btn btn-primary" id="send" >Send to Lab</button>
+      </div> -->
     </div>
   </div>
 </div>

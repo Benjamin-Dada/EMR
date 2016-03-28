@@ -27,10 +27,10 @@
         <p><a href="{{route('notes.index',$patient->id)}}" class="btn btn-default">Add Consultation Note and Prescription</a></p>
     @endif
     @if(Auth::user()->name === "Lab Attendant")
-         <p><a href="#" class="btn btn-default">Add Test Result</a></p>
+         <p><a href="{{route('test.index', $patient -> id)}}" class="btn btn-default">Add Test Result</a></p>
     @endif
     @if(Auth::user()->name === "Pharmacist" )
-       <p><a href="#" class="btn btn-default">Confirm Drug Dispense </a></p>
+       <p><a href="{{route('drugs.index', $patient -> id)}}" class="btn btn-default">Confirm Drug Dispense </a></p>
     @endif
 </div>
          

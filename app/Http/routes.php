@@ -52,6 +52,15 @@ Route::group(['middleware' => 'web'], function () {
         'as' => 'test.store'
     ]);
   
+    Route::get('patients/{patient}/drugs', [
+        'uses'=>'DrugsController@index',
+        'as' => 'drugs.index'
+    ]);
+    Route::post('patients/{patient}/drugs', [
+        'uses'=>'DrugsController@store',
+        'as' => 'drugs.store'
+    ]);
+
     Route::post('search', ['uses'=>'SearchController@index']);
 
 });

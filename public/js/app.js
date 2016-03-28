@@ -45,9 +45,16 @@ $(document).ready(function() {
         }, 500);
     }
 
-    window.down = function (){clearTimeout(timer);}
-    
-    var arr = ​$("input:checked").map(function () { return this.value; }​);
-    $("#notes").val(arr.get().join(","));
+    window.down = function (){
+        clearTimeout(timer);
+    }
 
+    $('#send').on('click', function () {
+        var arr = $('input:checked').map(function () {
+            return this.value;
+        });    
+
+        $('#notes').val(arr.get().join(', '));
+    });
+    
 }); 
