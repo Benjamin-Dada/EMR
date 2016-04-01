@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+
 @section('content')
 
 @if(!Auth::check())
@@ -26,7 +27,9 @@
 		            <td>ID</td>
 		            <td>Name</td>
 		            <td>Email</td>
+                    @if(Auth::user()->name === "Front Desk")
 		            <td>Actions</td>
+                    @endif
 		        </tr>
 		    </thead>
 		    <tbody>
@@ -35,6 +38,7 @@
     			<td>{{$pat->id }}.</td>
     			<td><a href="{{ route('patients.show', $pat->id) }}">{{$pat->name}}</a></td>
     			<td>{{$pat->email}}</td>
+                @if(Auth::user()->name === "Front Desk")
     			<td><a href="/patients/{{ $pat->id }}/edit" class="btn btn-primary">
                         <i class="fa fa-edit"></i> Edit
                         </a>
@@ -44,11 +48,13 @@
                     <i class="fa fa-trash-o"></i> Delete
                 </button>
             	</td>
+                @endif
     		</tr>
          	@endforeach       
     		</tbody>
     	</table>
     @endif
+
 
     @if($patient->isEmpty())
     <h3>There are currently no Patients <a class="btn btn-info" href="{{ route('patients.create') }}">Create New Patient</a></h3>

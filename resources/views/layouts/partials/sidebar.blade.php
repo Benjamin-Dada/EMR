@@ -5,8 +5,8 @@
         <li style="margin-left:20px;">
            <p><img src="{{ Auth::user()->getAvatarUrl() }}" height="50" width="50" style="border-radius:25px;" /></p>
         </li>
-        <li><a href="/"> @ {{Auth::user()->name}}</a></li>
-        <li class="active"><a href="{{route('patients.index')}}"><span class="sr-only">(current)</span>Patients</a></li>
+        <li><a class="nav" href="/"> @ {{Auth::user()->name}}</a></li>
+        <li><a class="nav" href="{{route('patients.index')}}">Patients</a></li>
         
         @if(Auth::user()->name === "Front Desk")
         <li><a href="{{ route('patients.create') }}">New Patient</a></li>

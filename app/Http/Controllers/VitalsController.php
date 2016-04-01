@@ -51,12 +51,41 @@ class VitalsController extends Controller
 
         return redirect()->route('patients.index')->with('info','New Patient vital has been created successfully');  
         }
-/*        public function edit(Patient $patient)
+
+        public function edit($id)
         {
             $patient = Patient::find($id);
-            return view('patients.edit',compact('patient'));   
+            return view('patients.vitals.edit',compact('patient'));   
         }
-*/    }
+
+        /*public function show()
+        {
+            return view('patients.index');
+        }*/
+
+        public function update(Request $request, $id)
+        {
+            $patient = Patient::findOrFail($id);
+            
+           $this->validate($request, [
+            'temp'     => 'required|Numeric',
+            'weight' => 'required|Numeric',
+            'height'    => 'required|Numeric',
+            'bp_sys'   => 'required|Numeric',
+            'bp_dias' => 'required|Numeric',
+            'oxy_sat' => 'required|Numeric',
+            'head_cir' => 'required|Numeric',
+            'waist_cir' => 'required|Numeric',
+            'bmi' => 'required|Numeric'
+            ]);
+
+                $values = $request->all();
+
+                $patient->fill($values)->save();
+
+                return redirect()->back()->with('info','Patient Vital updated successfully');
+        }
+    }
 
 
     

@@ -29,10 +29,20 @@ Route::group(['middleware' => 'web'], function () {
         'as'=>'vitals.store'
     ]);
 
-    Route::put('patients/{patient}',[
+    Route::get('patients/{patient}/vitals/edit',[
+        'uses'=>'VitalsController@edit',
+        'as'=>'vitals.edit'
+    ]);
+
+    Route::put('patients/{patient}/vitals',[
+        'uses'=>'VitalsController@update',
+        'as'=>'vitals.update'
+    ]);
+
+    /*Route::put('patients/{patient}',[
         'uses'=>'PatientController@update',
         'as'=>'patients.update'
-    ]);
+    ]);*/
 
     Route::get('patients/{patient}/notes', [
         'uses'=>'NotesController@index',

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="_token" content = "{{ csrf_token() }}">
 
-    <title>EMR</title>
+    <title>EMR - @yield('title', 'by 12CH014339')</title>
 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -14,6 +14,7 @@
 
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('css/dashboard.css')}}">
     <style>
         body {
@@ -60,6 +61,7 @@
                         <!-- <li><a href="{{ url('/register') }}">Register</a></li> -->
                 </ul>
         @else       
+
                 <ul class="nav navbar-nav navbar-right">
 
                 <li class="dropdown">

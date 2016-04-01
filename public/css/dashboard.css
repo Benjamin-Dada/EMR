@@ -93,3 +93,29 @@
   display: inline-block;
   border-radius: 50%;
 }
+
+.input-container {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="search"] {
+  height: 40px;
+  width: 300px;
+  padding-left: 40px;
+  padding-right: 10px;
+  background-color: rgb(200, 200, 200);
+  border: 0;
+  line-height: 40px;
+  font-size: 14px;
+}

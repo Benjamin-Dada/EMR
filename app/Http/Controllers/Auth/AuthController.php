@@ -43,10 +43,10 @@ class AuthController extends Controller
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
-    protected function authenticated(Request $request, User $user)
+    /*protected function authenticated(Request $request, User $user)
     {
         return redirect('patients');
-        /*        $user = $request->user();
+                $user = $request->user();
 
                 if($user->id == 1) {
                     return redirect('patients');
@@ -65,8 +65,8 @@ class AuthController extends Controller
                 else{
                     return redirect('patients');
                 }
-        */    
-}
+            
+}*/
 
     /**
      * Get a validator for an incoming registration request.

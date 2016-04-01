@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'Welcome Page')
+
 @section('content')
 
 @if(!Auth::check())
@@ -18,12 +20,12 @@
             <h4><strong><li>Evaluate the EMR system to be developed</li></strong></h4>
         </ol>
         <p><a class="btn btn-primary btn-lg" href="{{url('/login')}}" role="button">Login &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" href="{{url('/register')}}" role="button">Register User</a></p>
     </div>
 </div>
 <div class="footer">
   <div class="container">
-    <p style="padding-top:20px; text-align: center; font-family: 'Open Sans';"> &copy; <?php echo date("Y"); ?>
- | Made with <i class="fa fa-heart"></i> by Benjamin Dada</p>
+    <p style="padding-top:20px; text-align: center; font-family: 'Open Sans';"> &copy; <?php echo date("Y"); ?> | Made with <i class="fa fa-heart"></i> by Benjamin Dada</p>
   </div>
 </div>
 @endif
@@ -35,20 +37,18 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             
             <h1 class="page-header">Dashboard 
-            <span style="float: right;">
-                <div class="form-group">
-                    <input type="text" id="search-input" name="search-input" class="form-control" placeholder="Search" onkeydown="down()" onkeyup="up()"></input>
+             </h1>
+                <div class="input-container">
+                    <div class="icon"><i class="fa fa-search"></i></div>
+                    <input type="search" id="search-input" name="search-input" placeholder="Search for Patient" onkeydown="down()" onkeyup="up()"/>
                 </div>
-            
-            <div id="search-result">
                 
-
-            </div>
-            </span>
-            </h1>
+                <div id="search-result">
+                    
+                </div>
+           
             
-            
-            <h2 class="sub-header">Patients <span style="float: right;"><a class="btn btn-info" href="{{ route('patients.create') }}">New Patient</a></span></h2>                    
+            <!-- <h2 class="sub-header">Patients <span style="float: right;"><a class="btn btn-info" href="{{ route('patients.create') }}">New Patient</a></span></h2> -->                    
         </div>
     </div>
 </div>

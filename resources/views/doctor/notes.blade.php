@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+@section('title', "Doctor's Page")
 @section('content')
 @include('layouts.partials.sidebar')
   <div class="col-sm-9 col-sm-offset-3 col-md-8  col-md-offset-3 main">
@@ -43,7 +44,7 @@
 
 <div class="col-md-3">
 <p> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#labTest">Request Lab test</button></p>
-<p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#">Request Radio Scan</button></p>
+<!-- <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#">Request Radio Scan</button></p> -->
 </div>
 <div class="modal fade" id="labTest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
@@ -66,7 +67,7 @@
 	      <div class="checkbox">
 		    <label><input type="checkbox" name="esr" value="esr"> ESR</label>
 	      </div>
-	       <button type="button" class="btn btn-primary" id="send" >Send to Lab</button>
+	       <button type="button" class="btn btn-primary" id="send" data-dismiss="modal">Send to Lab</button>
        </form>
     </div>
 <!--       <div class="modal-footer">

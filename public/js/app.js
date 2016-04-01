@@ -5,6 +5,10 @@ $(document).ready(function() {
              }
       });
 
+    $('li').on('click', function(){
+        //remove the class from the currently active class.
+         $(this).addClass('active');
+    });
     $("button.delete").on('click', function(e){
         e.preventDefault();
         if ( ! confirm('Are you sure?')) {
