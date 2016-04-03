@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+@section('title', 'Edit Vitals')
 @section('content')
 
     @include('layouts.partials.sidebar')

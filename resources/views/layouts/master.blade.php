@@ -27,8 +27,8 @@
     </style>
 </head>
 <body id="app-layout">
-
-    <nav class="navbar navbar-default navbar-static-top">
+<div class="keyline"></div>
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
 
@@ -42,8 +42,13 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    EMR
+                    <img src="{{asset('images/logo.jpg')}}" alt="EMR" height="45" weight="45" class="hidden-xs">
+                    <img src="{{asset('images/logo.jpg')}}" alt="EMR" height="45" weight="45" class="visible-xs">
+
                 </a>
+               <!--  <a href="{{ url('/') }}" class="pull-left">
+                    <img src="{{asset('images/logo.jpg')}}">
+                </a> -->
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">

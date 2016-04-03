@@ -39,11 +39,6 @@ Route::group(['middleware' => 'web'], function () {
         'as'=>'vitals.update'
     ]);
 
-    /*Route::put('patients/{patient}',[
-        'uses'=>'PatientController@update',
-        'as'=>'patients.update'
-    ]);*/
-
     Route::get('patients/{patient}/notes', [
         'uses'=>'NotesController@index',
         'as' => 'notes.index'
@@ -72,5 +67,12 @@ Route::group(['middleware' => 'web'], function () {
     ]);
 
     Route::post('search', ['uses'=>'SearchController@index']);
+
+    Route::post('/pay', [
+    'uses' => 'PaymentController@redirectToGateway',
+    'as' => 'pay'
+    ]);
+
+    Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
 
 });

@@ -6,22 +6,20 @@
 
 @if(!Auth::check())
 <div class="jumbotron">
+<img src="http://res.cloudinary.com/dgpjdyg8p/image/upload/v1458521045/With_Doctors_eh80vm.jpg" alt="Hospital_staff_image" style="width: 100%;">
     <div class="container">
-    <h1>Welcome to EMR</h1>
-    <p><img src="http://res.cloudinary.com/dgpjdyg8p/image/upload/v1458521045/With_Doctors_eh80vm.jpg" alt="Hospital_staff_image" style="width: 100%;border-radius: 5px;">
-    </p>
-        <p><strong>The aim of this system is to design develop a cloud-based EMR solution for a particular hospital.</strong></p>
-        <p><h4><strong>The Objective of this project is to: </strong></h4></p>
+        <p><h4>The aim of this system is to design develop a cloud-based EMR solution for a particular hospital.</h4></p>
+        <p><h4>The Objective of this project is to: </h4></p>
         <ol>
-            <h4><strong><li>Analyze the existing Medical Record Information System currently in use by developed Countries so as to utilize better development and design techniques.</li></strong></h4>
-            <h4><strong><li>Identify the requirements for development of an Automated Medical Record Information System</li></strong></h4>
-            <h4><strong><li>Model and design a robust EMR using Unified Modelling Language Tools</li></strong></h4>
-            <h4><strong><li>Implement a reliable EMR based off my research</li></strong></h4>
-            <h4><strong><li>Evaluate the EMR system to be developed</li></strong></h4>
+            <h4><li>Analyze the existing Medical Record Information System currently in use by developed Countries so as to utilize better development and design techniques.</li></h4>
+            <h4><li>Identify the requirements for development of an Automated Medical Record Information System.</li></h4>
+            <h4><li>Model and design a robust EMR using Unified Modelling Language Tools.</li></h4>
+            <h4><li>Implement a reliable EMR based off my research.</li></h4>
+            <h4><li>Evaluate the EMR system to be developed.</li></h4>
         </ol>
-        <p><a class="btn btn-primary btn-lg" href="{{url('/login')}}" role="button">Login &raquo;</a></p>
-        <p><a class="btn btn-primary btn-lg" href="{{url('/register')}}" role="button">Register User</a></p>
+        <p><a class="btn btn-primary btn-lg" href="{{url('/login')}}" role="button">Login</a> or <a href="{{url('/register')}}">Register new Staff</a></p>
     </div>
+
 </div>
 <div class="footer">
   <div class="container">
