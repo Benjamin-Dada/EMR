@@ -4,6 +4,7 @@
 @section('content')
 
 @if(!Auth::check())
+@section('title', 'Restricted')
 <div class="container">
     <div class="row">
      <h1>Please Log in</h1>
@@ -12,7 +13,7 @@
 @endif
 
 @if(Auth::check())
-
+@section('title', 'Patient Logs')
 @include('layouts.partials.sidebar')
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     @include('layouts.partials.alerts')

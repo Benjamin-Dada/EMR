@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
-@section('title', "Drug's Dispense Form")
+@section('title', "Test Request Form")
 @section('content')
 @include('layouts.partials.sidebar')
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     @include('layouts.partials.alerts')
     <h1 class="page-header">
-        Drug Prescription Form 
-    </h1>
+		Test Request Form    
+	</h1>
 
 	@if($patient)
 	    
@@ -16,8 +16,7 @@
 		        <tr>
 		            <td>ID</td>
 		            <td>Patient Name</td>
-		            <td>Drug Name</td>
-		            <td>Dose</td>
+		            <td>Test Name</td>
 		            <td>Duration</td>
 		        </tr>
 		    </thead>
@@ -28,19 +27,23 @@
     		<tr>
     			<td>{{$pat->id }}.</td>
     			<td>{{$pat->name }}</td>
-    			<td><input type="text" name="name" class="form-control" id="name" value="{{ old('name') ?: '' }}"></td>
+    			<td><select name="test[]" class="form-control" id="test" size="5">
+                            <option value="">Select Test </option>
+                            <option selected value="ua">Urine Anaysis</option>
+                            <option selected value="blood_count">Blood Count</option>
+                            <option selected value="pcv">PCV</option>
+                            <option selected value="esr">ESR</option>
+                            <option selected value="hiv">HIV 12 Screening</option>
+                            <option selected value="hb_test">Hepatitis B Testing</option>
+                        </select>
+                </td>
     			<td><input type="text" name="dose" class="form-control" id="dose" value="{{ old('dose') ?: '' }}"></td>
     			<td><input type="datetime" name="duration" class="form-control" id="duration" value="{{ old('duration') ?: '' }}"></td>
     		</tr>
          	@endforeach  
     		</tbody>
     	</table>
-        @if (Auth::user()->name === "Doctor")
-        <button type="submit" class="btn btn-default">Send</button>
-        @endif
-        @if (Auth::user()->name === "Pharmacy")
-        <button type="submit" class="btn btn-default">Confirm</button>
-        @endif
+    	<button type="submit" class="btn btn-default">Confirm</button>
         <input type="hidden" name="_token" value="{{ csrf_token() }}">        
         </form>  
     @endif

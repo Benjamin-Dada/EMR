@@ -3,7 +3,7 @@
 @section('title', "Doctor's Page")
 @section('content')
 @include('layouts.partials.sidebar')
-  <div class="col-sm-9 col-sm-offset-3 col-md-8  col-md-offset-3 main">
+<div class="col-sm-9 col-sm-offset-3 col-md-8  col-md-offset-3 main">
              @include('layouts.partials.alerts')
     <div class="col-md-9"> 
         <h1 class="page-header">Consultation</h1>
@@ -12,7 +12,7 @@
                    <div class="panel-body">
                     <form class="form-vertical" role="form" method="post" action="{{ route('notes.store',$patient->id) }}">
 						<div class="form-group{{ $errors->has('notes') ? ' has-error' : '' }}">
-						<label for="notes" class="control-label">Consultation Notes</label>
+						<label for="notes" class="control-label">Consultation Note</label>
 							<textarea name="notes" class="form-control" id="notes" rows="10" cols="10">
 								{{ old('notes') ?: '' }}
 							</textarea>
@@ -22,7 +22,7 @@
 							@endif
 						</div>
 
-						<div class="form-group{{ $errors->has('prescription') ? ' has-error' : '' }}">
+						<!-- <div class="form-group{{ $errors->has('prescription') ? ' has-error' : '' }}">
 						<label for="prescription" class="control-label">Prescription</label>
 							<textarea name="prescription" class="form-control" id="prescription" rows="10" cols="10">
 								{{ old('prescription') ?: '' }}
@@ -30,7 +30,7 @@
 							@if ($errors->has('prescription'))
 							<span class="help-block">{{ $errors->first('prescription') }}</span>
 							@endif
-						</div>
+						</div> -->
 
  						<div class="form-group">
                             <button type="submit" class="btn btn-default">Enter</button>
@@ -40,12 +40,14 @@
 					</form>
 				</div>
 			</div>
-		</div>
+	</div>
+	<div class="col-md-3" style="padding-top: 150px;">
+		<p> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#labTest">Request Lab test</button></p>
+		<p><a href="{{route('drugs.index', $patient->id)}}" class="btn btn-primary">Presribe Drugs</a></p>
+	</div>
+	
 
-<div class="col-md-3">
-<p> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#labTest">Request Lab test</button></p>
-<!-- <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#">Request Radio Scan</button></p> -->
-</div>
+
 <div class="modal fade" id="labTest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

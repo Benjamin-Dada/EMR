@@ -36,7 +36,6 @@
                         <span class="help-block">{{ $errors->first('pcv') }}</span>
                     @endif
                     </div>
-
           
                     <div class="form-group{{ $errors->has('esr') ? ' has-error' : '' }}">
                     <label for="esr" class="control-label">Erythrocyte Sedimentation Rate</label>

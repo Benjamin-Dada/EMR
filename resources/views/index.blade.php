@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
-@section('title', 'Welcome Page')
 
 @section('content')
 
 @if(!Auth::check())
+@section('title', 'Welcome Page')
 <div class="jumbotron">
-<img src="http://res.cloudinary.com/dgpjdyg8p/image/upload/v1458521045/With_Doctors_eh80vm.jpg" alt="Hospital_staff_image" style="width: 100%;">
+<img src="http://res.cloudinary.com/dgpjdyg8p/image/upload/v1459701909/AfricaDoctors_qzjbru.jpg" alt="Hospital_staff_image" style="width: 100%;">
     <div class="container">
         <p><h4>The aim of this system is to design develop a cloud-based EMR solution for a particular hospital.</h4></p>
         <p><h4>The Objective of this project is to: </h4></p>
@@ -16,8 +16,8 @@
             <h4><li>Model and design a robust EMR using Unified Modelling Language Tools.</li></h4>
             <h4><li>Implement a reliable EMR based off my research.</li></h4>
             <h4><li>Evaluate the EMR system to be developed.</li></h4>
-        </ol>
-        <p><a class="btn btn-primary btn-lg" href="{{url('/login')}}" role="button">Login</a> or <a href="{{url('/register')}}">Register new Staff</a></p>
+        </ol><br/>
+        <p><a class="btn btn-primary btn-lg" href="{{url('/login')}}" role="button">Login</a> or <a href="{{url('/register')}}">New Staff</a></p>
     </div>
 
 </div>
@@ -29,6 +29,7 @@
 @endif
 
 @if(Auth::check())
+@section('title', 'Search for Old Patient')
 <div class="container">
     <div class="row">
         @include('layouts.partials.sidebar')

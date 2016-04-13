@@ -1,5 +1,6 @@
 @extends('layouts.master')
- 
+
+@section('title', 'New patient') 
 @section('content')
     @include('layouts.partials.sidebar')
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -64,11 +65,14 @@
                             @endif
                         </div>
 
-
+                        <input type="hidden" name="whomToSee" value="Nurse">
+                   
                         <div class="form-group">
                             <button type="submit" class="btn btn-default">Sign up</button>
                         </div>
+
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        
                     </form>
                 </div>
             </div>

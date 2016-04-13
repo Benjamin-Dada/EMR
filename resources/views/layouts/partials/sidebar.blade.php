@@ -3,7 +3,7 @@
 
     <ul class="nav nav-sidebar">
         <li style="margin-left:20px;">
-           <p><img src="{{ Auth::user()->getAvatarUrl() }}" height="50" width="50" style="border-radius:25px;" /></p>
+           <p><img src="{{ Auth::user()->getAvatarUrl() }}" height="50" width="50" style="border-radius:25px;" alt="avatar" /></p>
         </li>
         <li><a class="nav" href="/"> @ {{Auth::user()->name}}</a></li>
         <li><a class="nav" href="{{route('patients.index')}}">Patients</a></li>
