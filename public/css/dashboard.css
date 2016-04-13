@@ -83,6 +83,7 @@ a {
 
 .main {
   padding: 40px;
+  padding-top: 60px;
 }
 @media (min-width: 767px) {
   .main {
@@ -114,6 +115,7 @@ a {
   border-radius: 50%;
 }
 
+/*for the search box*/
 
 .input-container {
   position: relative;
@@ -140,6 +142,7 @@ input[type="search"] {
   line-height: 40px;
   font-size: 14px;
 }
+/*End search box*/
 
 .keyline {
   position: relative;
@@ -148,7 +151,8 @@ input[type="search"] {
   height: 5px;
   background: #1da1f2;
 }
-
+/*add space after the hero image
+limit the width of the text*/
 .jumbotron .container {
   margin-top: 30px;
 }
@@ -159,6 +163,7 @@ input[type="search"] {
   }
 
 }
+/*for the home page*/
 h4{
   line-height: 1.6;
 }

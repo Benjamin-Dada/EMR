@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterPatientsRegTable extends Migration
+class AlterUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,13 @@ class AlterPatientsRegTable extends Migration
      */
     public function up()
     {
-         Schema::table('patients_reg', function (Blueprint $table)
-        {
-            $table->string('created_by')->nullable()->default('Nurse');
+      Schema::table('users', function (Blueprint $table){
+        $table->integer('roles_id')->unsigned();
+        $table->foreign('roles_id')
+                ->references('id')
+                ->on('roles')->onDelete('cascade');
 
-        });
+      });
     }
 
     /**
@@ -26,6 +28,6 @@ class AlterPatientsRegTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('users');
     }
 }

@@ -14,6 +14,8 @@ class NotesController extends Controller
 {
  	public function index(Patient $patient)
  	{
+        //$patient = Patient::where('whomToSee', 'Doctor');
+        
  		return view('doctor.notes', compact('patient'));
  	}
 
@@ -33,10 +35,10 @@ class NotesController extends Controller
     
         $note->save();
 
-        return redirect()->route('patients.index')->with('info','Note has been added');  
+        return redirect()->route('doctor.notes')->with('info','Note has been added');  
     }
 
-    public function show(){
-
+    public function show(Patient $Patient){
+        return view('patients.show', compact('patient'));
     }
 }

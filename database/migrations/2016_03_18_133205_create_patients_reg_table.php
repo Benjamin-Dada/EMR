@@ -29,6 +29,7 @@ class CreatePatientsRegTable extends Migration
             $table->string('employer_name')->nullable();
             $table->longText('work_address')->nullable();
             $table->string('religion')->nullable();
+            $table->string('whomToSee')->nullable()->default('Doctor');
             $table->timestamps();
         });
     }

@@ -6,6 +6,8 @@ use App\Patient;
 
 use App\Drug;
 
+use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -29,6 +31,8 @@ class DrugsController extends Controller
 
 		$patientDrug = new Drug;
 		
+/*		$days = Carbon::create(null, 'duration', null, 0);*/
+
 		$patientDrug->patient_id = $patient_id;
 		$patientDrug->name = $request->input('name');
 		$patientDrug->dose = $request->input('dose');
@@ -36,7 +40,7 @@ class DrugsController extends Controller
 
 		$patientDrug->save();
 
-		return redirect()->back()->with('info', 'Successfully entered.');
+		return redirect()->route('patients.index')->with('info', 'Successfully entered.');
 	}    
 	 public function show($id)
     {

@@ -68,11 +68,11 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::post('search', ['uses'=>'SearchController@index']);
 
-    Route::post('/pay', [
+    /*Route::post('/pay', [
     'uses' => 'PaymentController@redirectToGateway',
     'as' => 'pay'
     ]);
 
     Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
-
+*/
 });

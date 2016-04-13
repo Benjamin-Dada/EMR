@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterConsultationNotes extends Migration
+class AlterDrugsPrescriptionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,11 @@ class AlterConsultationNotes extends Migration
      */
     public function up()
     {
-         Schema::table('consultation_notes', function(Blueprint $table){
-            $table->foreign('patient_id')
+        Schema::table('drugs_prescription', function (Blueprint $table){
+               $table->foreign('patient_id')
                   ->references('id')->on('patients_reg')
                   ->onDelete('cascade');
-            $table->string('prescription')->nullable()->change();
-        }
-        );  
+         });
     }
 
     /**
@@ -28,6 +26,6 @@ class AlterConsultationNotes extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('drugs_prescription');
     }
 }

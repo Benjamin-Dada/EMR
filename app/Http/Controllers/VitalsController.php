@@ -14,7 +14,8 @@ class VitalsController extends Controller
 {
     public function index(Patient $patient)//type-hinting therefore the variable has to be the same as the wildcard in the route
     {	
-    	//return $patient_id;
+    	$patient = Patient::where('whomToSee', 'Nurse')->first();
+        //dd($patient);
     	return view('patients.vitals.form', compact('patient'));//this should 
     }
 

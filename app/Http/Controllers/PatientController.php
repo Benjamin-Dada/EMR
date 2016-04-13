@@ -25,6 +25,7 @@ class PatientController extends Controller
 //        $doc_id =  User::where('name', 'Doctor')->get(['id'])->first();
        // $did = strval($doc_id); 
         //$data = array('patient' => $patient , 'doc_id' => $doc_id );
+        //dd($patient);
         return view('patients.index', compact('patient'));  
 
         }
@@ -52,18 +53,19 @@ class PatientController extends Controller
             'dob' => 'required|date|before:today',
             'address'    => 'required|min:10',
             'status'   => 'required',
-            'phone' => '',
+            'phone' => 'required',
             'email' => 'required|email'
         ]);
 
         $patient = new Patient;
+
+        $patient->whomToSee = $request->input('whomToSee');
         $patient->name   = $request->input('name');
         $patient->marital_stat = $request->input('status');
         $patient->dob    = $request->input('dob');
         $patient->address = $request->input('address');
         $patient->email = $request->input('email');
         $patient->phone = $request->input('phone');
-        /*$patient->id = Auth::user()->id;*/
 
         $patient->save();
 
@@ -79,7 +81,7 @@ class PatientController extends Controller
     public function show($id)
     {
         $patient = Patient::find($id);
-        
+        //dd($patient);
         return view('patients.show')->withPatient($patient);
     }
 

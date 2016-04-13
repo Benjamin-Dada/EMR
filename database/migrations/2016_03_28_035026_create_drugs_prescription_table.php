@@ -13,11 +13,13 @@ class CreateDrugsPrescriptionTable extends Migration
     public function up()
     {
         Schema::create('drugs_prescription', function (Blueprint $table){
-            $table->integer('id');
+            $table->increments('id');
             $table->integer('patient_id')->unsigned();
             $table->string('name');
             $table->integer('dose');
-            $table->datetime('duration');
+            $table->string('duration');
+            $table->timestamps();
+
         });
 
     }
@@ -29,6 +31,6 @@ class CreateDrugsPrescriptionTable extends Migration
      */
     public function down()
     {
-        Schema::drop('drugs_presciption');
+        Schema::drop('drugs_prescription');
     }
 }

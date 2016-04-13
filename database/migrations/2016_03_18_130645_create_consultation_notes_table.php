@@ -16,8 +16,8 @@ class CreateConsultationNotesTable extends Migration
         {
             $table->increments('id')->unsigned();
             $table->integer('patient_id')->unsigned();
-            $table->string('notes');
-            $table->string('prescription'); 
+            $table->string('notes')->nullable();
+            $table->string('prescription')->nullable();
             $table->timestamps();
         });
     }
