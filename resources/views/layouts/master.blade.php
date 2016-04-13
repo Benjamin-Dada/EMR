@@ -43,8 +43,8 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{asset('images/logo.jpg')}}" alt="EMR" height="45" weight="45" class="hidden-xs">
-                    <img src="{{asset('images/logo.jpg')}}" alt="EMR" height="45" weight="45" class="visible-xs">
+                    <img src="{{asset('images/logo.gif')}}" alt="EMR" height="45" weight="45" class="hidden-xs">
+                    <img src="{{asset('images/logo.gif')}}" alt="EMR" height="45" weight="45" class="visible-xs">
 
                 </a>
                <!--  <a href="{{ url('/') }}" class="pull-left">
