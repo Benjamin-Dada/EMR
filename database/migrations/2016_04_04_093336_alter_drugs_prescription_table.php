@@ -14,7 +14,8 @@ class AlterDrugsPrescriptionTable extends Migration
     {
         Schema::table('drugs_prescription', function (Blueprint $table){
                $table->foreign('patient_id')
-                  ->references('id')->on('patients_reg')
+                  ->references('id')
+                  ->on('patients_reg')
                   ->onDelete('cascade');
          });
     }
