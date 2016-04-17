@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password'
     ];
 
     /**
@@ -29,4 +29,8 @@ class User extends Authenticatable
         return "http://www.gravatar.com/avatar/" . md5(strtolower(trim($this->email))) . "?d=mm&s=40";
     }
 
+     public function role()
+    {
+        return $this->hasOne('App\Role');
+    }
 }

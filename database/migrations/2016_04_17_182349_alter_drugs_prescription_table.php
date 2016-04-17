@@ -12,12 +12,9 @@ class AlterDrugsPrescriptionTable extends Migration
      */
     public function up()
     {
-        Schema::table('drugs_prescription', function (Blueprint $table){
-               $table->foreign('patient_id')
-                  ->references('id')
-                  ->on('patients_reg')
-                  ->onDelete('cascade');
-         });
+        Schema::table('drugs_prescription', function(Blueprint $table){
+            $table->foreign('patient_id')->references('id')->on('patients_reg')->onDelete('cascade');
+        }); 
     }
 
     /**

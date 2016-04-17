@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRolesTable extends Migration
+class AlterLabTestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,9 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table){
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->string('name');
-            $table->timestamps();
-            ;
-        });
+        Schema::table('lab_tests', function(Blueprint $table){
+            $table->foreign('patient_id')->references('id')->on('patients_reg')->onDelete('cascade');
+        }); 
     }
 
     /**
@@ -28,6 +24,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-       Schema::drop('roles');
+        Schema::drop('lab_tests');
     }
 }

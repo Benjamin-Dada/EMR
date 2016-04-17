@@ -16,7 +16,8 @@ return [
     |
     */
 
-    'driver' => env('mandrill', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'smtp'),
+    //'driver' => env('mandrill', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +56,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'benjamin.o.dada@gmail.com', 'name' => 'Benjamin'],
+    'from' => ['address' => 'support@emr.com', 'name' => 'EMR Support'],
 
     /*
     |--------------------------------------------------------------------------
