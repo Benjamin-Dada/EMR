@@ -10,9 +10,12 @@ class Note extends Model
 {
     protected $table = 'consultation_notes';
 
-    protected $fillable =['patient_id','notes', 'prescription'];
+    protected $fillable =[
+    	'patient_id','notes', 'prescription'
+    ];
 
-    function patient(){
+    public function patient()
+    {
     	$this->belongsTo('App\Patient');
     }
 

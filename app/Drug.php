@@ -11,7 +11,9 @@ class Drug extends Model
     //public $timestamps = false;
 
     /*protected $dates = ['duration'];*/
-    protected $fillable = ['patient_id', 'name','dose','duration'];  
+    protected $fillable = [
+    	'patient_id', 'name','dose','duration'
+    ];  
 
 
     public function patient()

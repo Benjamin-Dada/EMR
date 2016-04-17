@@ -18,7 +18,7 @@ class User extends Authenticatable
     /**
      * The attributes excluded from the model's JSON form.
      *
-     * @var arrayo
+     * @var array
      */
     protected $hidden = [
         'password', 'remember_token',
@@ -27,6 +27,6 @@ class User extends Authenticatable
     public function getAvatarUrl()
     {
         return "http://www.gravatar.com/avatar/" . md5(strtolower(trim($this->email))) . "?d=mm&s=40";
-
     }
+
 }
