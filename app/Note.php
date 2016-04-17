@@ -16,7 +16,7 @@ class Note extends Model
 
     public function patient()
     {
-    	$this->belongsTo('App\Patient');
+    	return $this->belongsTo('App\Patient');
     }
 
 }
