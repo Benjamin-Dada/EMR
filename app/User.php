@@ -33,4 +33,8 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Role');
     }
+
+    /*public function isAdmin(){
+        return $this->role->name == "Admin";
+    }*/
 }
