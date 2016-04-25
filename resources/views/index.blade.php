@@ -17,7 +17,9 @@
             <h4><li>Implement a reliable EMR based off my research.</li></h4>
             <h4><li>Evaluate the EMR system to be developed.</li></h4>
         </ol><br/>
-        <p><a class="btn btn-primary btn-lg" href="{{url('/login')}}" role="button">Login</a> <!-- or <a href="{{url('/register')}}">New Staff</a> --></p>
+        <p>
+            <a class="btn btn-primary btn-lg" href="{{url('/login')}}" role="button">Login</a> 
+        </p>
     </div>
 
 </div>
@@ -29,7 +31,7 @@
 @endif
 
 @if(Auth::check())
-@section('title', 'Search for Old Patient')
+@section('title', 'Search for Existing Patient')
 <div class="container">
     <div class="row">
         @include('layouts.partials.sidebar')
