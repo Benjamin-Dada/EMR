@@ -24,6 +24,27 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
+                            <label for="role" class="col-md-4 control-label">Role</label>
+
+                            <div class="col-md-6">
+                                <select name="role" class="form-control" id="role" >
+                                    <option value="">Choose a Department</option>
+                                    <option value="1">Front Desk</option>
+                                    <option value="2">Nurse</option>
+                                    <option value="3">Doctor</option>
+                                    <option value="4">Laboratory</option>
+                                    <option value="5">Pharmacy</option>
+                                </select>
+                                @if ($errors->has('role'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('role') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">E-Mail Address</label>
 
