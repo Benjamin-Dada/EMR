@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConsultationNotesTable extends Migration
+class CreateNotesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,15 @@ class CreateConsultationNotesTable extends Migration
      */
     public function up()
     {
-        Schema::create('consultation_notes',function (Blueprint $table)
+        Schema::create('notes',function (Blueprint $table)
         {
-            $table->increments('id')->unsigned();
-            $table->integer('patient_id')->unsigned();
+            $table->increments('id');
             $table->string('notes')->nullable();
             $table->string('prescription')->nullable();
+            $table->integer('patient_id')->unsigned();
+            $table->foreign('patient_id')
+                  ->references('id')                  
+                  ->on('patients')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateConsultationNotesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('consultation_notes');
+        Schema::drop('notes');
     }
 }

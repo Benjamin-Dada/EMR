@@ -6,7 +6,7 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-3 main">
   @include('layouts.partials.alerts')
   @if( $patient )
-  @if(Auth::user()->name === "Front Desk")
+  @if(Auth::user()->role === "1")
   <h1 class="page-header"> Patient Details </h1>
   <div class="panel panel-default">
     <div class="panel-heading"> <strong> {!! $patient->name !!} </strong></div>
@@ -27,7 +27,8 @@
   </div>
 <p><a href="{{route('patients.edit',$patient->id)}}" class="btn btn-primary">Edit Registration Details</a></p>
 @endif
-@if(Auth::user()->name === "Nurse")
+
+@if(Auth::user()->role === "2")
 <h1 class="page-header"> Patient Vitals </h1>
 <div class="panel panel-default">
     <div class="panel-heading"> <strong> {!! $patient->name !!} </strong></div>
@@ -42,16 +43,21 @@
       <strong> Temperature: </strong> {{$patient->patientvitals->temp}}
       <br>
       <strong> Created at: </strong> {{$patient->patientvitals->created_at}}
-      <br>
+      <br><br>
+
+      <p><a class="btn btn-primary" href="{{route('vitals.edit', $patient->id)}}">Edit Patient vitals</a></p>
       @endif  
+      
       @if(!$patient->patientvitals)
-      <h2 style="color: red;">Vitals of {!! $patient->name !!} not found! <p><a class="btn btn-primary" href="{{$patient->id}}/vitals">Enter Patient vitals</a></p></h2>
-      @endif
+      <div class="alert alert-danger">Vitals of {!! $patient->name !!} not yet entered!</div>
   </div>
 </div>
-<p><a class="btn btn-primary" href="{{route('vitals.edit', $patient->id)}}">Edit Patient vitals</a></p>
+     <p><a class="btn btn-primary" href="{{$patient->id}}/vitals">Enter Patient vitals</a></p>
+     @endif
+
 @endif
-@if(Auth::user()->name === "Doctor")
+
+@if(Auth::user()->role === "3")
 <h1 class="page-header"> Patient Vitals </h1>
 <div class="panel panel-default">
     <div class="panel-heading"> <strong> {!! $patient->name !!} </strong></div>
@@ -63,7 +69,7 @@
       <br>
       <strong> Temperature: </strong> {{$patient->patientvitals->temp}}
       <br>
-      <strong> Last visited: </strong> {{$patient->patientvitals->updated_at}}
+      <strong> Last visit: </strong> {{$patient->patientvitals->updated_at}}
       <br>
       @endif  
   </div>
@@ -71,7 +77,7 @@
 <p><a href="{{route('notes.index',$patient->id)}}" class="btn btn-primary">Add Consultation Note and Prescription</a></p>
 @endif
 
-@if(Auth::user()->name === "Lab Attendant")
+@if(Auth::user()->role === "4")
 <h1 class="page-header"> Test Request by Doctor </h1>
 <div class="panel panel-default">
     <div class="panel-heading"> <strong> {!! $patient->name !!} </strong></div>
@@ -82,7 +88,7 @@
 <p><a href="{{route('test.index', $patient -> id)}}" class="btn btn-primary">Add Test Result</a></p>
 @endif
 
-@if(Auth::user()->name === "Pharmacist" )
+@if(Auth::user()->role === "5" )
 <h1 class="page-header"> Drug Prescribed by Doctor </h1>
 <div class="panel panel-default">
     <div class="panel-heading"> <strong> {!! $patient->name !!} </strong></div>

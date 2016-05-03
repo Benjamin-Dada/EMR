@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PatientVitals extends Model
+class Vital extends Model
 {
 
-	protected $table = 'patients_vitals';
+	//protected $table = 'patients_vitals';
 
 	protected $fillable = [
 		'patient_id', 'temp','weight', 'height',

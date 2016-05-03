@@ -16,13 +16,12 @@
 							<textarea name="notes" class="form-control" id="notes" rows="10" cols="10">
 								{{ old('notes') ?: '' }}
 							</textarea>
-							@if ($errors
-							->has('notes'))
+							@if ($errors->has('notes'))
 							<span class="help-block">{{ $errors->first('notes') }}</span>
 							@endif
 						</div>
 
-						<!-- <div class="form-group{{ $errors->has('prescription') ? ' has-error' : '' }}">
+						<div class="form-group{{ $errors->has('prescription') ? ' has-error' : '' }}">
 						<label for="prescription" class="control-label">Prescription</label>
 							<textarea name="prescription" class="form-control" id="prescription" rows="10" cols="10">
 								{{ old('prescription') ?: '' }}
@@ -30,7 +29,7 @@
 							@if ($errors->has('prescription'))
 							<span class="help-block">{{ $errors->first('prescription') }}</span>
 							@endif
-						</div> -->
+						</div>
 
  						<div class="form-group">
                             <button type="submit" class="btn btn-default">Enter</button>
@@ -42,7 +41,7 @@
 			</div>
 	</div>
 	<div class="col-md-3" style="padding-top: 150px;">
-		<p> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#labTest">Request Lab test</button></p>
+		<!-- <p> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#labTest">Request Lab test</button></p> -->
 		<p><a href="{{route('drugs.index', $patient->id)}}" class="btn btn-primary">Presribe Drugs</a></p>
 	</div>
 	

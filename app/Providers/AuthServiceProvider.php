@@ -25,9 +25,13 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(GateContract $gate)
     {
         $this->registerPolicies($gate);
-
+        //only admin
         $gate->define('create-user', function($user){
-            return $user->role->name=="Admin";
+            return $user->role==="0";
+        });
+        //only front desk
+        $gate->define('create-patient', function($user){
+            return $user->role==="1";
         });
         
     }

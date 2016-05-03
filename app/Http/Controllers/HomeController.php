@@ -12,10 +12,13 @@ class HomeController extends Controller
      *
      * @return void
      */
-   /* public function __construct()
+    public function __construct()
     {
-        $this->middleware('auth');
-    }*/
+        //applies the auth middleware to every route except the index method
+        $this->middleware('auth', ['except'=>['index']]);
+
+        //I might want to apply the admin middleware to only the register method
+    }
 
     /**
      * Show the application dashboard.
@@ -26,7 +29,6 @@ class HomeController extends Controller
     {
       return view ('index');    
     }
-
     
 
 }

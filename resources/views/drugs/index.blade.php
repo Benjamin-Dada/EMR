@@ -22,23 +22,20 @@
 		        </tr>
 		    </thead>
 		    <tbody>
-
-		    @foreach ($patient as $pat)
-		    <form role=form" method="post" action="{{route('drugs.store', $pat->id)}}">  
+		    <form role="form" method="post" action="{{route('drugs.store', $patient->id)}}">  
     		<tr>
-    			<td>{{$pat->id }}.</td>
-    			<td>{{$pat->name }}</td>
+    			<td>{{$patient->id }}.</td>
+    			<td>{{$patient->name }}</td>
     			<td><input type="text" name="name" class="form-control" id="name" value="{{ old('name') ?: '' }}"></td>
     			<td><input type="text" name="dose" class="form-control" id="dose" value="{{ old('dose') ?: '' }}"></td>
     			<td><input type="datetime" name="duration" class="form-control" id="duration" value="{{ old('duration') ?: '' }}"></td>
     		</tr>
-         	@endforeach  
     		</tbody>
     	</table>
-        @if (Auth::user()->name === "Doctor")
+        @if (Auth::user()->role === "3")
         <button type="submit" class="btn btn-default">Send</button>
         @endif
-        @if (Auth::user()->name === "Pharmacy")
+        @if (Auth::user()->role === "5")
         <button type="submit" class="btn btn-default">Confirm</button>
         @endif
         <input type="hidden" name="_token" value="{{ csrf_token() }}">        

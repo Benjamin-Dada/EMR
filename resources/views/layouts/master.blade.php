@@ -17,6 +17,7 @@
 
   <!-- Styles -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{asset('css/dashboard.css')}}">
   <style>
@@ -71,22 +72,20 @@
 
               <ul class="nav navbar-nav navbar-right">
 
-                <!-- @can('create-user')
+                @can('create-user')
                 <li><a href="{{ url('/register') }}">Register</a></li>
-                @endcan -->
-
-                <li><a href="{{ url('/register') }}">Register</a></li>
+                @endcan
 
                 <li class="dropdown">
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                  Name <span class="caret"></span>
+                  {{Auth::user()->name}} <span class="caret"></span>
                 </a>
 
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                 </ul>
               </li>
-            </ul>
+             </ul>
             @endif
           </div>
         </div>
@@ -95,9 +94,11 @@
       @yield('content')
 
       <!-- JavaScripts -->
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-      <script src="{{ asset('js/app.js') }}"></script>
+      <script src="{{ asset('js/bootstrap.js') }}"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <script src="{{ asset('js/app.js') }}"></script>
       {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
     </body>
     </html>

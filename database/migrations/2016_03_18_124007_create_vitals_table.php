@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePatientsVitalsTable extends Migration
+class CreateVitalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,9 @@ class CreatePatientsVitalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('patients_vitals', function (Blueprint $table)
+        Schema::create('vitals', function (Blueprint $table)
         {
-            $table->increments('id')->unsigned();
-            $table->integer('patient_id')->unsigned();
+            $table->increments('id');
             $table->integer('temp');
             $table->integer('weight');
             $table->integer('height');
@@ -26,12 +25,11 @@ class CreatePatientsVitalsTable extends Migration
             $table->integer('head_cir')->nullable();
             $table->integer('waist_cir')->nullable();
             $table->integer('BMI')->nullable();
-            $table->timestamps();
-            
-            /*$table->foreign('patient_id')
-                  ->references('id')->on('patients_reg')
+            $table->integer('patient_id')->unsigned();
+            $table->foreign('patient_id')
+                  ->references('id')->on('patients')
                   ->onDelete('cascade');
-*/
+            $table->timestamps();
         });
 
         
@@ -44,6 +42,6 @@ class CreatePatientsVitalsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('patients_vitals'); 
+        Schema::drop('vitals'); 
     }
 }

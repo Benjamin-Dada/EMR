@@ -1,12 +1,11 @@
 @extends('layouts.master')
-
-
 @section('content')
 
 @if(!Auth::check())
 @section('title', 'Welcome Page')
 <div class="jumbotron">
-<img src="http://res.cloudinary.com/dgpjdyg8p/image/upload/v1459701909/AfricaDoctors_qzjbru.jpg" alt="Hospital_staff_image" style="width: 100%;">
+<!-- <img src="http://res.cloudinary.com/dgpjdyg8p/image/upload/v1459701909/AfricaDoctors_qzjbru.jpg" alt="Hospital_staff_image" style="width: 100%;"> -->
+<img src="{{asset('images/photo1.png')}}" width="100%">
     <div class="container">
         <p><h4>The aim of this system is to design develop a cloud-based EMR solution for a particular hospital.</h4></p>
         <p><h4>The Objective of this project is to: </h4></p>
@@ -31,25 +30,31 @@
 @endif
 
 @if(Auth::check())
-@section('title', 'Search for Existing Patient')
+@section('title', 'Welcome Page')
 <div class="container">
     <div class="row">
         @include('layouts.partials.sidebar')
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             
-            <h1 class="page-header">Dashboard 
-             </h1>
-                <div class="input-container">
-                    <div class="icon"><i class="fa fa-search"></i></div>
-                    <input type="search" id="search-input" name="search-input" placeholder="Search for Patient" onkeydown="down()" onkeyup="up()"/>
-                </div>
-                
-                <div id="search-result">
-                    
-                </div>
-           
-            
-            <!-- <h2 class="sub-header">Patients <span style="float: right;"><a class="btn btn-info" href="{{ route('patients.create') }}">New Patient</a></span></h2> -->                    
+            <h1 class="page-header">Welcome {{Auth::user()->name}} !
+            </h1>
+
+            <div class="alert alert-info"> 
+            <p> Please visit to the <b>sidebar</b> to your left, for a list of actions you can perform. <br><br> </p>
+
+            For enquiries contact <b> <a href="mailto: admin@emr.com">John Doe</a>, the administrator</b>.
+
+            </div> 
+            @if(Auth::user()->role === '0')
+            <div class="alert alert-warning"> 
+            <p> When you register a  new user, you get logged in as the user.<br><br> </p>
+
+            This helps you to know that the functionality works as well as refreshes your memory on the access rights the new user now has.
+
+            </div> 
+            @endif
+
+                                
         </div>
     </div>
 </div>

@@ -29,11 +29,6 @@ class User extends Authenticatable
         return "http://www.gravatar.com/avatar/" . md5(strtolower(trim($this->email))) . "?d=mm&s=40";
     }
 
-     public function role()
-    {
-        return $this->hasOne('App\Role');
-    }
-
     /*public function isAdmin(){
         return $this->role->name == "Admin";
     }*/

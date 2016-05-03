@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Patient;
 
-use App\PatientVitals;
+use App\Vital;
 
 use Illuminate\Http\Request;
 
@@ -14,7 +14,7 @@ class VitalsController extends Controller
 {
     public function index(Patient $patient)//type-hinting therefore the variable has to be the same as the wildcard in the route
     {	
-    	$patient = Patient::where('whomToSee', 'Nurse')->first();
+    	//$patient = Patient::nurse()->first();
         //dd($patient);
     	return view('patients.vitals.form', compact('patient'));//this should 
     }
@@ -34,7 +34,7 @@ class VitalsController extends Controller
         ]);
 
         //$patient = new Patient;
-        $patientVitals = new PatientVitals;
+        $patientVitals = new Vital;
 
         $patientVitals->patient_id = $patient_id;
         $patientVitals->temp   = $request->input('temp');

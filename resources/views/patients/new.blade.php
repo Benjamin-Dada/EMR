@@ -65,7 +65,22 @@
                             @endif
                         </div>
 
-                        <input type="hidden" name="whomToSee" value="Nurse">
+                        <div class="form-group{{ $errors->has('whomToSee') ? ' has-error' : '' }}">
+                            <label for="whomToSee" class="col-md-4 control-label">Whom To See</label>
+                                <select name="whomToSee" class="form-control" id="role" >
+                                    <option value="2">Nurse</option>
+                                    <option value="3">Doctor</option>
+                                    <option value="4">Laboratory</option>
+                                    <option value="5">Pharmacy</option>
+                                </select>
+                                @if ($errors->has('whomToSee'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('whomToSee') }}</strong>
+                                    </span>
+                                @endif
+                            
+                        </div>
+
                    
                         <div class="form-group">
                             <button type="submit" class="btn btn-default">Sign up</button>

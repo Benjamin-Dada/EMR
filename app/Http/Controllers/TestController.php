@@ -16,7 +16,7 @@ class TestController extends Controller
 {
     public function index()
     {
-    	$patient = Patient::where('whomToSee', 'Laboratory')->first();
+    	$patient = Patient::lab()->first();
     	return view('test.index')->withPatient($patient);
     }
 

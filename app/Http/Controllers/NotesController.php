@@ -12,10 +12,10 @@ use App\Http\Requests;
 
 class NotesController extends Controller
 {
- 	public function index(Patient $patient)
+ 	public function index()
  	{
-        //$patient = Patient::where('whomToSee', 'Doctor');
-        
+        $patient = Patient::get()->first();
+        //dd($patient);
  		return view('doctor.notes', compact('patient'));
  	}
 
@@ -35,7 +35,9 @@ class NotesController extends Controller
     
         $note->save();
 
-        return redirect()->route('doctor.notes')->with('info','Note has been added');  
+        //dd($note);
+
+        return redirect()->route('patients.index')->with('info','Note has been added');  
     }
 
     public function show(Patient $Patient){

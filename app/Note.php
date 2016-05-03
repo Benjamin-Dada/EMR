@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Note extends Model
 {
-    protected $table = 'consultation_notes';
+    //protected $table = 'consultation_notes';
 
     protected $fillable =[
     	'patient_id','notes', 'prescription'

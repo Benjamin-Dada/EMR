@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLabTestsTable extends Migration
+class CreateTestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,9 @@ class CreateLabTestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lab_tests', function (Blueprint $table)
+        Schema::create('tests', function (Blueprint $table)
         {
-            $table->increments('id')->unsigned();
-            $table->integer('patient_id')->unsigned();
+            $table->increments('id');
             $table->integer('ua');
             $table->integer('blood_count');
             $table->integer('pcv');
@@ -23,6 +22,10 @@ class CreateLabTestsTable extends Migration
             $table->integer('pap_smear')->nullable();
             $table->integer('hiv_12_screening')->nullable();
             $table->integer('hb_ag_test')->nullable();
+            $table->integer('patient_id')->unsigned();
+            $table->foreign('patient_id')
+                  ->references('id')
+                  ->on('patients')->onDelete('cascade');
             $table->timestamps();
             
 
@@ -36,6 +39,6 @@ class CreateLabTestsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('lab_tests');
+        Schema::drop('tests');
     }
 }

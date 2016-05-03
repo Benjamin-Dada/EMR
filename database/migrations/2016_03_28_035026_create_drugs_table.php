@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDrugsPrescriptionTable extends Migration
+class CreateDrugsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,15 @@ class CreateDrugsPrescriptionTable extends Migration
      */
     public function up()
     {
-        Schema::create('drugs_prescription', function (Blueprint $table){
+        Schema::create('drugs', function (Blueprint $table){
             $table->increments('id');
-            $table->integer('patient_id')->unsigned();
             $table->string('name');
             $table->integer('dose');
             $table->string('duration');
+            $table->integer('patient_id')->unsigned();
+            $table->foreign('patient_id')
+                  ->references('id')
+                  ->on('patients')->onDelete('cascade');
             $table->timestamps();
 
         });
@@ -31,6 +34,6 @@ class CreateDrugsPrescriptionTable extends Migration
      */
     public function down()
     {
-        Schema::drop('drugs_prescription');
+        Schema::drop('drugs');
     }
 }

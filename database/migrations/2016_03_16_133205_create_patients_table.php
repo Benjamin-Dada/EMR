@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePatientsRegTable extends Migration
+class CreatePatientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreatePatientsRegTable extends Migration
      */
     public function up()
     {
-        Schema::create('patients_reg', function (Blueprint $table)
+        Schema::create('patients', function (Blueprint $table)
         {
             $table->increments('id')->unsigned();
             $table->string('name');
@@ -21,15 +21,15 @@ class CreatePatientsRegTable extends Migration
             $table->longText('address')->nullable();
             $table->string('email')->unique();
             $table->string('phone')->nullable()->default('08090952186');
-            $table->string('mm_name')->nullable()->default('dada');
+            $table->string('mm_name')->nullable()->default('bodunrin');
             $table->string('kin_name')->nullable()->default('dada');
-            $table->string('kin_phone')->nullable()->default('08090952186');
+            $table->string('kin_phone')->nullable()->default('08033007566');
             $table->longText('kin_address')->nullable();
             $table->string('occupation')->nullable();
             $table->string('employer_name')->nullable();
             $table->longText('work_address')->nullable();
             $table->string('religion')->nullable();
-            $table->string('whomToSee')->nullable()->default('Doctor');
+            $table->string('whomToSee')->nullable()->default('2');
             $table->timestamps();
         });
     }
@@ -41,6 +41,6 @@ class CreatePatientsRegTable extends Migration
      */
     public function down()
     {
-            Schema::drop('patients_reg');
+            Schema::drop('patients');
     }
 }

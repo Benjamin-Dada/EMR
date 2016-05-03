@@ -14,6 +14,7 @@ Route::group(['middleware' => 'web'], function () {
 	'uses'=>'HomeController@index',
 	'as'=>'index'
 	]);
+   // Route::get('register', 'HomeController@register' )->middleware('admin');
 
     Route::auth();
     

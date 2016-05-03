@@ -16,7 +16,7 @@ class DrugsController extends Controller
 {
 	public function index()
     {
-    	$patient = Patient::all(); 
+    	$patient = Patient::get()->first(); 
     	
     	return view('drugs.index')->withPatient($patient);
     }    

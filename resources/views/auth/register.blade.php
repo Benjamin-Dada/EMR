@@ -1,9 +1,12 @@
 @extends('layouts.master')
 
+@section('title', 'Register user') 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2" style="padding-top: 80px;">
+@include('layouts.partials.sidebar')
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">User Creation</h1>
+        <div class="col-md-8 col-md-offset-2">
+            @include('layouts.partials.alerts')
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
@@ -30,6 +33,7 @@
                             <div class="col-md-6">
                                 <select name="role" class="form-control" id="role" >
                                     <option value="">Choose a Department</option>
+                                    <option value="0">Admin</option>
                                     <option value="1">Front Desk</option>
                                     <option value="2">Nurse</option>
                                     <option value="3">Doctor</option>
@@ -98,6 +102,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 </div>
 @endsection

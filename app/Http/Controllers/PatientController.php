@@ -21,14 +21,18 @@ class PatientController extends Controller
      */
     public function index()
     {
+
         $patient = Patient::all();
-//        $doc_id =  User::where('name', 'Doctor')->get(['id'])->first();
-       // $did = strval($doc_id); 
+        
+        $users = User::all();
+        
+        //$doc_id =  User::where('name', 'Doctor')->get(['id'])->first();
+        //$did = strval($doc_id); 
         //$data = array('patient' => $patient , 'doc_id' => $doc_id );
         //dd($patient);
-        return view('patients.index', compact('patient'));  
+        return view('patients.index', compact(['patient', 'users']));  
 
-        }
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -66,6 +70,7 @@ class PatientController extends Controller
         $patient->address = $request->input('address');
         $patient->email = $request->input('email');
         $patient->phone = $request->input('phone');
+        $patient->whomToSee = $request->input('whomToSee');
 
         $patient->save();
 

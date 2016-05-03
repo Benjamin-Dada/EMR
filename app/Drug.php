@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Drug extends Model
 {
-    protected $table = 'drugs_prescription';
+    //protected $table = 'drugs_prescription';
 
     //public $timestamps = false;
 
