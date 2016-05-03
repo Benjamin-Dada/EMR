@@ -11,7 +11,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Enter Patient Vitals Here</div>
                 <div class="panel-body">
-                    <form class="form-vertical" role=form" method="post" action="{{route('vitals.store', $patient->id)}}">
+                    <form class="form-vertical" role="form" method="post" action="{{route('vitals.store', $patient->id)}}">
                     <div class="form-group{{ $errors->has('temp') ? ' has-error' : '' }}">
                         <label for="temp" class="control-label">Temperature (f)</label>
                         <input type="text" name="temp" class="form-control" id="temp" value="{{ old('temp') ?: '' }}">

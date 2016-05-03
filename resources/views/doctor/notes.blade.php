@@ -10,7 +10,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Consultation note</div>
                    <div class="panel-body">
-                    <form class="form-vertical" role="form" method="post" action="{{ route('notes.store',$patient->id) }}">
+                    <form class="form-vertical" role="form" method="post" action="{{ route('notes.store', $patient->id) }}">
 						<div class="form-group{{ $errors->has('notes') ? ' has-error' : '' }}">
 						<label for="notes" class="control-label">Consultation Note</label>
 							<textarea name="notes" class="form-control" id="notes" rows="10" cols="10">
@@ -22,7 +22,7 @@
 						</div>
 
 						<div class="form-group{{ $errors->has('prescription') ? ' has-error' : '' }}">
-						<label for="prescription" class="control-label">Prescription</label>
+						<label for="prescription" class="control-label">Test Recommendations</label>
 							<textarea name="prescription" class="form-control" id="prescription" rows="10" cols="10">
 								{{ old('prescription') ?: '' }}
 							</textarea>
@@ -35,19 +35,20 @@
                             <button type="submit" class="btn btn-default">Enter</button>
                         </div>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="id" value="{{$patient->id}}">
 
 					</form>
 				</div>
 			</div>
 	</div>
 	<div class="col-md-3" style="padding-top: 150px;">
-		<!-- <p> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#labTest">Request Lab test</button></p> -->
 		<p><a href="{{route('drugs.index', $patient->id)}}" class="btn btn-primary">Presribe Drugs</a></p>
+		<!-- <p> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#labTest">Request Lab test</button></p> -->
 	</div>
 	
 
 
-<div class="modal fade" id="labTest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<!-- <div class="modal fade" id="labTest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -70,7 +71,7 @@
 	      </div>
 	       <button type="button" class="btn btn-primary" id="send" data-dismiss="modal">Send to Lab</button>
        </form>
-    </div>
+    </div> -->
 <!--       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" id="send" >Send to Lab</button>

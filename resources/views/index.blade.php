@@ -5,7 +5,7 @@
 @section('title', 'Welcome Page')
 <div class="jumbotron">
 <!-- <img src="http://res.cloudinary.com/dgpjdyg8p/image/upload/v1459701909/AfricaDoctors_qzjbru.jpg" alt="Hospital_staff_image" style="width: 100%;"> -->
-<img src="{{asset('images/photo1.png')}}" width="100%">
+<img src="{{asset('images/hospital-1280x720.jpg')}}" width="100%">
     <div class="container">
         <p><h4>The aim of this system is to design develop a cloud-based EMR solution for a particular hospital.</h4></p>
         <p><h4>The Objective of this project is to: </h4></p>
