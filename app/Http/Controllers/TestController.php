@@ -44,7 +44,7 @@ class TestController extends Controller
 
     	$patientTest->save();
 
-    	return redirect()->back()->with('info', 'Test Request Sent');
+    	return redirect()->back()->with('info', 'Test Result Sent');
     }
 
 }

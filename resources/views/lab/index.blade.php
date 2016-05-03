@@ -23,7 +23,7 @@
 		    <tbody>
 
 		    @foreach ($patient as $pat)
-		    <form role=form" method="post" action="{{route('drugs.store', $pat->id)}}">  
+		    <form role="form" method="post" action="{{route('drugs.store', $pat->id)}}">  
     		<tr>
     			<td>{{$pat->id }}.</td>
     			<td>{{$pat->name }}</td>

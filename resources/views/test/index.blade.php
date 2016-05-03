@@ -11,7 +11,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Enter Test Results</div>
                 <div class="panel-body">
-                    <form class="form-vertical" role=form" method="post" action="{{route('test.store', $patient->id)}}">
+                    <form class="form-vertical" role="form" method="post" action="{{route('test.store', $patient->id)}}">
 
                     <div class="form-group{{ $errors->has('ua') ? ' has-error' : '' }}">
                         <label for="ua" class="control-label">Urine Analysis</label>
