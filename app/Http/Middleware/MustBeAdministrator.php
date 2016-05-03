@@ -15,12 +15,12 @@ class MustBeAdministrator
      */
     public function handle($request, Closure $next)
     {
-       /* $user = $request -> user();
-        if ($user) {
-            if($user->role=="0"){return $next($request);}
-        }*/
-        return $next($request);
-        //return redirect()->guest('login');
+        $user = $request -> user();
+        if ($user && $user->role==="0") {
+            return $next($request);
+        }
+        //return $next($request);
+        return redirect()->guest('login');
         //abort(404, 'Only Admins can register new users.');
         
     }

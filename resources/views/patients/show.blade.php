@@ -80,7 +80,7 @@
 @if(Auth::user()->role === "4")
 <h1 class="page-header"> Test Request by Doctor </h1>
 <div class="panel panel-default">
-    <div class="panel-heading"> <strong> {!! $patient->name !!} </strong></div>
+    <div class="panel-heading"> <strong> {{ $patient->name }} </strong></div>
     <div class="panel-body">
       Urine Analysis <br> Blood Count <br> PCV <br> ESR
   </div>
@@ -91,7 +91,7 @@
 @if(Auth::user()->role === "5" )
 <h1 class="page-header"> Drug Prescribed by Doctor </h1>
 <div class="panel panel-default">
-    <div class="panel-heading"> <strong> {!! $patient->name !!} </strong></div>
+    <div class="panel-heading"> <strong> {{ $patient->name }} </strong></div>
     <div class="panel-body">
       Vitamin C 600mmhg 4days              
   </div>
