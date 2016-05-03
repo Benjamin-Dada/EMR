@@ -1,21 +1,45 @@
 @if(Auth::check())
 <div class="col-sm-3 col-md-2 sidebar">
-
-    <div class="pull-left" style="padding-bottom: 10px;">
     @if(Auth::user()->role==="0")
-    <img src="{{asset('/images/img/user8-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
-    @endif
-    @if(Auth::user()->role==="1")
-    <img src="{{asset('/images/img/user7-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
-    @endif
-    @if(Auth::user()->role==="2")
-    <img src="{{asset('/images/img/user5-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
-    @endif
-    @if(Auth::user()->role==="3" || Auth::user()->role==="4" || Auth::user()->role==="5" )
-    <img src="{{asset('/images/img/user6-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
-    @endif
+    <div class="pull-left" style="padding-bottom: 10px;">
+        <img src="{{asset('/images/img/user8-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
+        <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Admin</small></div>
     </div>
-    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}</div>
+    @endif
+
+    @if(Auth::user()->role==="1")
+    <div class="pull-left" style="padding-bottom: 10px;">    
+        <img src="{{asset('/images/img/user7-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
+    </div>
+    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Front Desk</small></div>
+    @endif
+
+    @if(Auth::user()->role==="2")
+    <div class="pull-left" style="padding-bottom: 10px;"> 
+        <img src="{{asset('/images/img/user5-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
+     </div>
+    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Nurse</small></div>
+    @endif
+
+    @if(Auth::user()->role==="3" ) 
+    <div class="pull-left" style="padding-bottom: 10px;"> 
+        <img src="{{asset('/images/img/user6-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
+    </div>
+    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Doctor</small></div>
+    @endif
+
+    @if(Auth::user()->role==="4" ) 
+    <div class="pull-left" style="padding-bottom: 10px;"> 
+        <img src="{{asset('/images/img/user6-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
+    </div>
+    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Lab</small></div>
+    @endif
+    @if(Auth::user()->role==="5" ) 
+    <div class="pull-left" style="padding-bottom: 10px;"> 
+        <img src="{{asset('/images/img/user6-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
+    </div>
+    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Pharmacy</small></div>
+    @endif
 
     <ul class="nav nav-sidebar">
         <li>
