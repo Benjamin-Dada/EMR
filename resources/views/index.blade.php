@@ -46,6 +46,16 @@
 
             </div> 
             @if(Auth::user()->role === '0')
+            <div class="alert alert-info">
+                <p> Also, note that the roles are as follows: <br>
+                Admin Role - 0 <br>
+                Front Desk Role - 1 <br>
+                Nurse Role - 2 <br>
+                Doctor Role - 3 <br>
+                Lab Role - 4 <br>
+                Pharmacy Role - 5 <br>
+                </p>
+            </div>
             <div class="alert alert-warning"> 
             <p> When you register a  new user, you get logged in as the user.<br><br> </p>
 

@@ -14,10 +14,10 @@ use App\Http\Requests;
 
 class TestController extends Controller
 {
-    public function index()
+    public function index(Patient $patient)
     {
-    	$patient = Patient::lab()->first();
-    	return view('test.index')->withPatient($patient);
+    	//u just pass it in because of the route and not id
+    	return view('test.index', compact('patient'));
     }
 
     public function show($id)

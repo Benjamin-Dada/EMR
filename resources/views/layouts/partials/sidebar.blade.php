@@ -1,10 +1,10 @@
 @if(Auth::check())
 <div class="col-sm-3 col-md-2 sidebar">
-    @if(Auth::user()->role==="0")
+    @if(Auth::user()->role === "0")
     <div class="pull-left" style="padding-bottom: 10px;">
         <img src="{{asset('/images/img/user8-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
-        <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Admin</small></div>
     </div>
+    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px;">{{Auth::user()->name}}<br><small>Admin</small></div>
     @endif
 
     @if(Auth::user()->role==="1")

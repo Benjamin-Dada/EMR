@@ -91,12 +91,19 @@
 @if(Auth::user()->role === "5" )
 <h1 class="page-header"> Drug Prescribed by Doctor </h1>
 <div class="panel panel-default">
-    <div class="panel-heading"> <strong> {{ $patient->name }} </strong></div>
+    <div class="panel-heading"> <strong> {!! $patient->name !!} </strong></div>
     <div class="panel-body">
-      Vitamin C 600mmhg 4days              
+    @if($patient->drug)
+    {{  $patient->drug->name}} {{$patient->drug->dose}} times  {{$patient->drug->duration }}
+    <a href="{{route('drugs.index', $patient -> id)}}" class="btn btn-primary">Confirm Drug Dispense </a>
+    @endif
+    @if(!$patient->drug)
+    <div class="alert alert-warning"> The Doctor is yet to prescribe a drug</div>
+    <p><a href="{{route('drugs.index', $patient -> id)}}" class="btn btn-primary">Go back</a></p>
+    @endif
+
   </div>
 </div>
-<p><a href="{{route('drugs.index', $patient -> id)}}" class="btn btn-primary">Confirm Drug Dispense </a></p>
 @endif
 </div>
 

@@ -75,7 +75,8 @@ class PatientController extends Controller
         $patient->save();
 
 
-        return redirect()->route('patients.index')->with('info','New Patient has been created successfully');    }
+        return redirect()->route('patients.index')->with('info','New Patient has been created successfully');   
+    }
 
     /**
      * Display the specified resource.

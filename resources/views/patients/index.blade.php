@@ -20,6 +20,7 @@
         @section('title', 'Users')
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         @include('layouts.partials.sidebar')
+        @include('layouts.partials.alerts')
         <h1 class="page-header"> 
         List of Users
         </h1>
@@ -49,6 +50,7 @@
         @section('title', 'Patient Logs')
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             @include('layouts.partials.sidebar')
+            @include('layouts.partials.alerts')
             <h1 class="page-header">
                 Patients 
                 @can('create-patient')

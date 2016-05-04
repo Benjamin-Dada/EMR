@@ -14,11 +14,9 @@ use App\Http\Requests;
 
 class DrugsController extends Controller
 {
-	public function index()
+	public function index(Patient $patient)
     {
-    	$patient = Patient::get()->first(); 
-    	
-    	return view('drugs.index')->withPatient($patient);
+    	return view('drugs.index', compact('patient'));
     }    
 
 	public function store(Request $request, $patient_id)
@@ -32,7 +30,6 @@ class DrugsController extends Controller
 		$patientDrug = new Drug;
 		
 /*		$days = Carbon::create(null, 'duration', null, 0);*/
-
 		$patientDrug->patient_id = $patient_id;
 		$patientDrug->name = $request->input('name');
 		$patientDrug->dose = $request->input('dose');
@@ -44,6 +41,7 @@ class DrugsController extends Controller
 	}    
 	 public function show($id)
     {
-    	return view('drugs.store');
+    	$patient = Patient::find($id);
+    	return view('drugs.store')->withPatient($patient);
     }
 }

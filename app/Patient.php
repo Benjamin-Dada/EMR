@@ -41,5 +41,9 @@ class Patient extends Model
     {
         return $this->hasOne('App\Test');
     }
+    public function drug()
+    {
+        return $this->hasOne('App\Drug');
+    }
 
 }

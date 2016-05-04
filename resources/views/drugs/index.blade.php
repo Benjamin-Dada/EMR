@@ -17,18 +17,18 @@
 		            <td>ID</td>
 		            <td>Patient Name</td>
 		            <td>Drug Name</td>
-		            <td>Dose</td>
+		            <td>No of times daily</td>
 		            <td>Duration</td>
 		        </tr>
 		    </thead>
 		    <tbody>
 		    <form role="form" method="post" action="{{route('drugs.store', $patient->id)}}">  
     		<tr>
-    			<td>{{$patient->id }}.</td>
-    			<td>{{$patient->name }}</td>
-    			<td><input type="text" name="name" class="form-control" id="name" value="{{ old('name') ?: '' }}"></td>
-    			<td><input type="text" name="dose" class="form-control" id="dose" value="{{ old('dose') ?: '' }}"></td>
-    			<td><input type="datetime" name="duration" class="form-control" id="duration" value="{{ old('duration') ?: '' }}"></td>
+    			<td>{{ $patient->id }}.</td>
+    			<td>{!! $patient->name !!}</td>
+    			<td><input type="text" name="name" class="form-control" id="name" value="{{ $patient->drug->name }}"></td>
+    			<td><input type="text" name="dose" class="form-control" id="dose" value="{{ $patient->drug->dose }}"></td>
+    			<td><input type="datetime" name="duration" class="form-control" id="duration" value="{{ $patient->drug->duration }}"></td>
     		</tr>
     		</tbody>
     	</table>
