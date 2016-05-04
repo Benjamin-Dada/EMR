@@ -66,7 +66,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('whomToSee') ? ' has-error' : '' }}">
-                            <label for="whomToSee" class="col-md-4 control-label">Whom To See</label>
+                            <label for="whomToSee" class="control-label">Whom To See</label>
                                 <select name="whomToSee" class="form-control" id="role" >
                                     <option value="2">Nurse</option>
                                     <option value="3">Doctor</option>
@@ -78,7 +78,6 @@
                                         <strong>{{ $errors->first('whomToSee') }}</strong>
                                     </span>
                                 @endif
-                            
                         </div>
 
                    
