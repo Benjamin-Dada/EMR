@@ -11,7 +11,7 @@ class Note extends Model
     //protected $table = 'consultation_notes';
 
     protected $fillable =[
-    	'patient_id','notes', 'prescription'
+    	'patient_id','notes', 'prescription', 'test', 'whomToSee'
     ];
 
     public function patient()

@@ -17,17 +17,17 @@
 		            <td>ID</td>
 		            <td>Patient Name</td>
 		            <td>Test Name</td>
-		            <td>Duration</td>
+		            <td>Verdict</td>
 		        </tr>
 		    </thead>
 		    <tbody>
 
-		    @foreach ($patient as $pat)
-		    <form role="form" method="post" action="{{route('drugs.store', $pat->id)}}">  
+		    <form role="form" method="post" action="{{route('test.store', $patient->id)}}">  
     		<tr>
-    			<td>{{$pat->id }}.</td>
-    			<td>{{$pat->name }}</td>
-    			<td><select name="test[]" class="form-control" id="test" size="5">
+    			<td>{{$patient->id }}.</td>
+    			<td>{{$patient->name }}</td>
+    			<td>{{$patient->note->test}}</td>
+                <!-- <select name="test[]" class="form-control" id="test" size="5">
                             <option value="">Select Test </option>
                             <option selected value="ua">Urine Anaysis</option>
                             <option selected value="blood_count">Blood Count</option>
@@ -35,12 +35,10 @@
                             <option selected value="esr">ESR</option>
                             <option selected value="hiv">HIV 12 Screening</option>
                             <option selected value="hb_test">Hepatitis B Testing</option>
-                        </select>
-                </td>
-    			<td><input type="text" name="dose" class="form-control" id="dose" value="{{ old('dose') ?: '' }}"></td>
-    			<td><input type="datetime" name="duration" class="form-control" id="duration" value="{{ old('duration') ?: '' }}"></td>
-    		</tr>
-         	@endforeach  
+                        </select> -->
+    			<td><input type="text" name="verdict" class="form-control" id="verdict" value="{{ old('verdict') ?: '' }}"></td>
+    			<!-- <td><input type="datetime" name="duration" class="form-control" id="duration" value="{{ old('duration') ?: '' }}"></td> -->
+    		</tr> 
     		</tbody>
     	</table>
     	<button type="submit" class="btn btn-default">Confirm</button>

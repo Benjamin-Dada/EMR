@@ -30,7 +30,8 @@ class VitalsController extends Controller
             'oxy_sat' => 'required|Numeric',
             'head_cir' => 'required|Numeric',
             'waist_cir' => 'required|Numeric',
-            'bmi' => 'required|Numeric'
+            'bmi' => 'required|Numeric',
+            'whomToSee' => 'required'
         ]);
 
         //$patient = new Patient;
@@ -45,6 +46,8 @@ class VitalsController extends Controller
         $patientVitals->head_cir = $request->input('head_cir');
         $patientVitals->waist_cir = $request->input('waist_cir');
         $patientVitals->bmi = $request->input('bmi');
+        $patientVitals->whomToSee = $request->input('whomToSee');
+
 
         /*$patient->id = Auth::user()->id;*/
     

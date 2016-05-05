@@ -21,8 +21,18 @@
 							@endif
 						</div>
 
+						<div class="form-group{{ $errors->has('test') ? ' has-error' : '' }}">
+						<label for="test" class="control-label">Requested Tests</label>
+							<textarea name="test" class="form-control" id="test" rows="10" cols="10">
+								{{ old('test') ?: '' }}
+							</textarea>
+							@if ($errors->has('test'))
+							<span class="help-block">{{ $errors->first('test') }}</span>
+							@endif
+						</div>
+
 						<div class="form-group{{ $errors->has('prescription') ? ' has-error' : '' }}">
-						<label for="prescription" class="control-label">Test Recommendations</label>
+						<label for="prescription" class="control-label">Prescriptions</label>
 							<textarea name="prescription" class="form-control" id="prescription" rows="10" cols="10">
 								{{ old('prescription') ?: '' }}
 							</textarea>
@@ -31,20 +41,33 @@
 							@endif
 						</div>
 
+						<div class="form-group{{ $errors->has('whomToSee') ? ' has-error' : '' }}">
+                            <label for="whomToSee" class="control-label">Whom To See</label>
+                                <select name="whomToSee" class="form-control" id="role" >
+                                    <option value="">Select whom to see</option>
+                                    <option value="4">Laboratory</option>
+                                    <option value="5">Pharmacy</option>
+                                </select>
+                                @if ($errors->has('whomToSee'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('whomToSee') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+
  						<div class="form-group">
                             <button type="submit" class="btn btn-default">Enter</button>
                         </div>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="id" value="{{$patient->id}}">
-
 					</form>
 				</div>
 			</div>
-	</div>
-	<div class="col-md-3" style="padding-top: 150px;">
+
+	<!-- <div class="col-md-3" style="padding-top: 150px;">
 		<p><a href="{{route('drugs.index', $patient->id)}}" class="btn btn-primary">Presribe Drugs</a></p>
-		<!-- <p> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#labTest">Request Lab test</button></p> -->
-	</div>
+		<p> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#labTest">Request Lab test</button></p>
+	</div> -->
 	
 
 

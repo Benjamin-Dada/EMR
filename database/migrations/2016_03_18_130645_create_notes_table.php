@@ -16,6 +16,7 @@ class CreateNotesTable extends Migration
         {
             $table->increments('id');
             $table->string('notes')->nullable();
+            $table->string('test')->nullable();
             $table->string('prescription')->nullable();
             $table->integer('patient_id')->unsigned();
             $table->foreign('patient_id')
@@ -32,6 +33,6 @@ class CreateNotesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('notes');
+       // Schema::drop('notes');
     }
 }

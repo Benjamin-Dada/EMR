@@ -72,11 +72,11 @@ Route::group(['middleware' => 'web'], function () {
         'uses'=>'DrugsController@store',
         'as' => 'drugs.store'
     ]);
-    Route::put('patients/{patient}/drugs', [
+    /*Route::put('patients/{patient}/drugs', [
         'uses'=>'DrugsController@store',
         'as' => 'drugs.store'
     ]);
-    
+*/    
     Route::post('search', ['uses'=>'SearchController@index']);
 
     /*Route::post('/pay', [

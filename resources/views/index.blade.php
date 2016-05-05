@@ -56,12 +56,6 @@
                 Pharmacy Role - 5 <br>
                 </p>
             </div>
-            <div class="alert alert-warning"> 
-            <p> When you register a  new user, you get logged in as the user.<br><br> </p>
-
-            This helps you to know that the functionality works as well as refreshes your memory on the access rights the new user now has.
-
-            </div> 
             @endif
 
                                 

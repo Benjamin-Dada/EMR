@@ -12,9 +12,9 @@ use App\Http\Requests;
 
 class NotesController extends Controller
 {
- 	public function index()
+ 	public function index(Patient $patient)
  	{
-        $patient = Patient::get()->first();
+      
         //dd($patient);
  		return view('doctor.notes', compact('patient'));
  	}
@@ -23,7 +23,9 @@ class NotesController extends Controller
     {
     	$this->validate($request, [
             'notes'     => 'required',
-            'prescription' => 'required'
+            'prescription' => 'required',
+            'test' => 'required', 
+            'whomToSee' => 'required'
         ]);
 
        // $patient = new Patient;
@@ -32,10 +34,10 @@ class NotesController extends Controller
         $note->patient_id = $patient_id;
         $note->notes   = $request->input('notes');
         $note->prescription   = $request->input('prescription');
+        $note->test   = $request->input('test');
+        $note->whomToSee   = $request->input('whomToSee');
     
         $note->save();
-
-        //dd($note);
 
         return redirect()->route('patients.index')->with('info','Note has been added');  
     }

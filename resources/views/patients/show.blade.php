@@ -78,14 +78,20 @@
 @endif
 
 @if(Auth::user()->role === "4")
-<h1 class="page-header"> Test Request by Doctor </h1>
+<h1 class="page-header"> Test Requested by Doctor </h1>
 <div class="panel panel-default">
     <div class="panel-heading"> <strong> {{ $patient->name }} </strong></div>
-    <div class="panel-body">
-      Urine Analysis <br> Blood Count <br> PCV <br> ESR
-  </div>
+    <div class="panel-body"><!-- can a for loop be used here -->
+     @if($patient->note)
+    {{$patient->note->test}} 
+    <a href="{{route('test.index', $patient -> id)}}" class="btn btn-primary">Add Test Result</a>
+    @endif
+    @if(!$patient->note)
+    <div class="alert alert-warning"> The Doctor is yet to request test for any patient</div>
+    <p>Click the back arrow in your browser to <b>Go back</b></a></p>
+    @endif
+    </div>
 </div>
-<p><a href="{{route('test.index', $patient -> id)}}" class="btn btn-primary">Add Test Result</a></p>
 @endif
 
 @if(Auth::user()->role === "5" )
@@ -93,21 +99,18 @@
 <div class="panel panel-default">
     <div class="panel-heading"> <strong> {!! $patient->name !!} </strong></div>
     <div class="panel-body">
-    @if($patient->drug)
-    {{  $patient->drug->name}} {{$patient->drug->dose}} times  {{$patient->drug->duration }}
+    @if($patient->note)
+    {{$patient->note->prescription}} 
     <a href="{{route('drugs.index', $patient -> id)}}" class="btn btn-primary">Confirm Drug Dispense </a>
     @endif
-    @if(!$patient->drug)
+    @if(!$patient->note)
     <div class="alert alert-warning"> The Doctor is yet to prescribe a drug</div>
-    <p><a href="{{route('drugs.index', $patient -> id)}}" class="btn btn-primary">Go back</a></p>
+    <p>Click the back arrow in your browser to <b>Go back</b></a></p>
     @endif
-
-  </div>
+    </div>
 </div>
 @endif
 </div>
-
-
 @endif
 
 @endsection

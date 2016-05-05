@@ -10,6 +10,12 @@ use App\User;
 
 use App\Patient;
 
+use App\Vital;
+
+use App\Test;
+
+use App\Note;
+
 use App\Http\Requests;
 
 class PatientController extends Controller
@@ -23,14 +29,16 @@ class PatientController extends Controller
     {
 
         $patient = Patient::all();
+        $users = User::all();
+       // $users = User::orderBy('role','asc')->get();
+
+        $forRecords = Patient::where('whomToSee', '1')->get();
+        $forNurse = Patient::where('whomToSee', '2')->get();
+        $forDoctor = Vital::where('whomToSee', '3')->get();
+        $forLab = Note::where('whomToSee', '4')->get();
+        $forPharmacy = Note::where('whomToSee', '5')->get();
         
-        $users = User::orderBy('role','asc')->get();
-        
-        //$doc_id =  User::where('name', 'Doctor')->get(['id'])->first();
-        //$did = strval($doc_id); 
-        //$data = array('patient' => $patient , 'doc_id' => $doc_id );
-        //dd($patient);
-        return view('patients.index', compact(['patient', 'users']));  
+        return view('patients.index', compact(['patient', 'users', 'forRecords', 'forNurse', 'forDoctor', 'forLab', 'forPharmacy']));  
 
     }
 
@@ -130,6 +138,11 @@ class PatientController extends Controller
 
         }
 
+        /*public function getVitals()
+        {
+            $vitals =  Vital::patient()->get();
+            return $vitals;
+        }*/
         /**
          * Remove the specified resource from storage.
          *

@@ -17,13 +17,14 @@ class TestController extends Controller
     public function index(Patient $patient)
     {
     	//u just pass it in because of the route and not id
+        //dd($patient);
     	return view('test.index', compact('patient'));
     }
 
-    public function show($id)
+   /* public function show($id)
     {
     	return view('test.store');
-    }
+    }*/
 
     public function store(Request $request, $patient_id)
     {
@@ -44,7 +45,7 @@ class TestController extends Controller
 
     	$patientTest->save();
 
-    	return redirect()->back()->with('info', 'Test Result Sent');
+    	return redirect()->route('patients.index')->with('info', 'Test Result Sent');
     }
 
 }

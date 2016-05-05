@@ -73,7 +73,7 @@
               <ul class="nav navbar-nav navbar-right">
 
                 @can('create-user')
-                <li><a href="{{ url('/register') }}">Register</a></li>
+                <li><a href="{{ url('users/register') }}">Register</a></li>
                 @endcan
 
                 <li class="dropdown">

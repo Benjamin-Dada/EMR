@@ -16,6 +16,7 @@ class DrugsController extends Controller
 {
 	public function index(Patient $patient)
     {
+    	
     	return view('drugs.index', compact('patient'));
     }    
 

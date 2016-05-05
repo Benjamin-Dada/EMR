@@ -9,7 +9,7 @@
         <h1 class="page-header"> {{$patient->name}} </h1>
 
         <div class="panel panel-default">
-            <div class="panel-heading">Enter Test Results</div>
+            <div class="panel-heading">Enter Test Results for <b>{{$patient->note->test}}</b></div>
                 <div class="panel-body">
                     <form class="form-vertical" role="form" method="post" action="{{route('test.store', $patient->id)}}">
 

@@ -12,7 +12,7 @@ class Drug extends Model
 
     /*protected $dates = ['duration'];*/
     protected $fillable = [
-    	'patient_id', 'name','dose','duration'
+    	'patient_id', 'name','dose','duration', 
     ];  
 
 
@@ -20,4 +20,9 @@ class Drug extends Model
 	{
 	   return $this->belongsTo('App\Patient');
 	}
+
+    /*public function scopePatient($query)
+    {
+        return $query->where('whomToSee', '3');
+    }*/
 }

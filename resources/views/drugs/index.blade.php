@@ -25,21 +25,17 @@
 		    <form role="form" method="post" action="{{route('drugs.store', $patient->id)}}">  
     		<tr>
     			<td>{{ $patient->id }}.</td>
-    			<td>{!! $patient->name !!}</td>
-    			<td><input type="text" name="name" class="form-control" id="name" value="{!! $patient->drug->name ?: '' !!}"></td>
-    			<td><input type="text" name="dose" class="form-control" id="dose" value="{{ $patient->drug->dose }}"></td>
-    			<td><input type="datetime" name="duration" class="form-control" id="duration" value="{{ $patient->drug->duration }}"></td>
+    			<td>{{ $patient->name }}</td>
+    			<td><input type="text" name="name" class="form-control" id="name" value="{{ old('name') ?: '' }}"></td>
+    			<td><input type="text" name="dose" class="form-control" id="dose" value="{{ old('dose') }}"></td>
+    			<td><input type="datetime" name="duration" class="form-control" id="duration" value="{{ old('duration') }}"></td>
     		</tr>
     		</tbody>
     	</table>
-        @if (Auth::user()->role === "3")
-        <button type="submit" class="btn btn-default">Send</button>
-        @endif
-        @if (Auth::user()->role === "5")
+       
         <button type="submit" class="btn btn-default">Confirm</button>
-        @endif
         <input type="hidden" name="_token" value="{{ csrf_token() }}">      
-        {!! method_field('PUT') !!}  
+         
         </form>  
     @endif
 
