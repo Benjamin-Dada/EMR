@@ -62,7 +62,7 @@
 
        @can('create-user')
         <li><a class="nav" href="{{route('patients.index')}}">Users</a></li>
-        <li><a href="{{ url('/register') }}">Register</a></li>
+        <li><a href="{{ route('user.index') }}">Register</a></li>
         @endcan
        
     </ul>

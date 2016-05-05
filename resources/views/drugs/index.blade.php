@@ -26,7 +26,7 @@
     		<tr>
     			<td>{{ $patient->id }}.</td>
     			<td>{!! $patient->name !!}</td>
-    			<td><input type="text" name="name" class="form-control" id="name" value="{{ $patient->drug->name }}"></td>
+    			<td><input type="text" name="name" class="form-control" id="name" value="{!! $patient->drug->name ?: '' !!}"></td>
     			<td><input type="text" name="dose" class="form-control" id="dose" value="{{ $patient->drug->dose }}"></td>
     			<td><input type="datetime" name="duration" class="form-control" id="duration" value="{{ $patient->drug->duration }}"></td>
     		</tr>
@@ -38,7 +38,8 @@
         @if (Auth::user()->role === "5")
         <button type="submit" class="btn btn-default">Confirm</button>
         @endif
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">        
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">      
+        {!! method_field('PUT') !!}  
         </form>  
     @endif
 

@@ -24,7 +24,7 @@ class PatientController extends Controller
 
         $patient = Patient::all();
         
-        $users = User::all();
+        $users = User::orderBy('role','asc')->get();
         
         //$doc_id =  User::where('name', 'Doctor')->get(['id'])->first();
         //$did = strval($doc_id); 
@@ -73,7 +73,6 @@ class PatientController extends Controller
         $patient->whomToSee = $request->input('whomToSee');
 
         $patient->save();
-
 
         return redirect()->route('patients.index')->with('info','New Patient has been created successfully');   
     }

@@ -44,4 +44,21 @@ class DrugsController extends Controller
     	$patient = Patient::find($id);
     	return view('drugs.store')->withPatient($patient);
     }
+    public function update(Request $request, $id)
+        {
+            $patient = Patient::findOrFail($id);
+            
+            $this->validate($request, [
+			'name' => 'required',
+			'dose' => 'required',
+			'duration'=>'required'
+			]);
+
+                $values = $request->all();
+
+                $patient->fill($values)->save();
+
+                return redirect()->route('patients.index')->with('info','Your Patient data has been updated successfully');
+
+        }
 }

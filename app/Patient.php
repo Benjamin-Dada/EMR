@@ -27,8 +27,6 @@ class Patient extends Model
     {
         return $query->where('whomToSee', "4");
     }
-
-
     public function patientvitals()
     {
         return $this->hasOne('App\Vital');
