@@ -29,9 +29,9 @@
 
 
             @if($forNurse->isEmpty())
-            <div class="alert alert-info">
+            <div class="alert alert-warning">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <h3>There are currently no Patients to be attended to, speak with the Front Desk Officer.</h3>
+            There are currently no Patients to be attended to, speak with the Front Desk Officer. &nbsp;
             <a href="mailto: frontdesk@emr.com" class="btn btn-info">Mail Officer</a> 
            </div>
             @endif

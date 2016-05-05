@@ -29,9 +29,9 @@
 
 
             @if($forLab->isEmpty())
-            <div class="alert alert-info">
+            <div class="alert alert-warning" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <h3>There are currently no Patients requiring test, still in doubt? Speak with the Doctor.</h3>
+            There are currently no Patients requiring test, still in doubt? Speak with the Doctor. &nbsp;
             <a href="mailto: nurse@emr.com" class="btn btn-info">Mail Nurse</a> 
             </div>
             @endif

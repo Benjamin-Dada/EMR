@@ -40,7 +40,10 @@
 
 
             @if($patient->isEmpty())
-            <h3>There are currently no Patients <a class="btn btn-info" href="{{ route('patients.create') }}">Create New Patient</a></h3>
+            <div class="alert alert-warning">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            There are currently no Patients &nbsp;<a class="btn btn-info" href="{{ route('patients.create') }}">Create New Patient</a>
+            </div>
             @endif
 
 

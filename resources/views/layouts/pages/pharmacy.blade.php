@@ -29,9 +29,9 @@
 
 
             @if($forPharmacy->isEmpty())
-            <div class="alert alert-info">
+            <div class="alert alert-warning">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            There are currently no Patients to dispense drugs to, still in doubt? Check-in with the Doctor.
+            There are currently no Patients to dispense drugs to, still in doubt? Check-in with the Doctor. &nbsp;
             <a href="mailto: doctor@emr.com" class="btn btn-info">Mail Doctor</a> 
             </div>
             @endif

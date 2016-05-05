@@ -38,7 +38,7 @@ class DrugsController extends Controller
 
 		$patientDrug->save();
 
-		return redirect()->route('patients.index')->with('info', 'Successfully entered.');
+		return redirect()->route('patients.index')->with('success', 'Successfully entered.');
 	}    
 	 public function show($id)
     {
