@@ -32,6 +32,6 @@ class UserController extends Controller
 
     	$user->save();
 
-    	return redirect()->route('patients.index')->with('info','New User has successfully been created');
+    	return redirect()->route('patients.index')->with('success','New User has successfully been created');
     }
 }
