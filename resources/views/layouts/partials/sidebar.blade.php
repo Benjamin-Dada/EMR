@@ -67,7 +67,7 @@
        
     </ul>
     <ul class="nav nav-sidebar">
-        <li><a href="#">Stats</a></li>
+        <li><a href="#"><!-- <span class="glyphicon glyphicon-stats"></span> -->Stats</a></li>
         <li><a href="#">Help</a></li>
         <li><a href="{{url('/logout')}}">Sign Out</a></li>
     </ul>
