@@ -30,7 +30,7 @@
 
             @if($forLab->isEmpty())
             <div class="alert alert-warning" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
             There are currently no Patients requiring test, still in doubt? Speak with the Doctor. &nbsp;
             <a href="mailto: nurse@emr.com" class="btn btn-info">Mail Nurse</a> 
             </div>

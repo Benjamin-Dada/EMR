@@ -15,6 +15,7 @@
 
 @if(session()->has('warning'))
 <div class="alert alert-warning" role="alert">
+	 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
 	{{ session() -> get('warning')}}
 </div>
 @endif

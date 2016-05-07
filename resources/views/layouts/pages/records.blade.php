@@ -41,7 +41,7 @@
 
             @if($patient->isEmpty())
             <div class="alert alert-warning">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
             There are currently no Patients &nbsp;<a class="btn btn-info" href="{{ route('patients.create') }}">Create New Patient</a>
             </div>
             @endif

@@ -30,7 +30,7 @@
 
             @if($forDoctor->isEmpty())
             <div class="alert alert-warning">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
             There are currently no Patients to be attended to, speak with the Nurse. &nbsp;
             <a href="mailto: nurse@emr.com" class="btn btn-info">Mail Nurse</a> 
             </div>
