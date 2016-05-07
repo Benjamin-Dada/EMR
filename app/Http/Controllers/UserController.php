@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Mail;
 
+use Illuminate\Support\Facades\Password;
+
 use App\User;
 
 use App\Http\Requests;
@@ -13,6 +15,7 @@ use App\Http\Requests;
 class UserController extends Controller
 {
 
+    
 	public function index()
 	{
     	return view('user.register');
@@ -33,12 +36,12 @@ class UserController extends Controller
     	$user->email = $request->input('email');
     	$user->password = bcrypt($request->input('password'));
 
-        $token = csrf_token();
+        $token = null;
 
         Mail::send('email.welcome', ['user' => $user, 'token' => $token], function ($m) use ($user) {
-            $m->from('hello@app.com', 'Your Application');
+            $m->from('benjamindada04@yahoo.com', 'Your Admin');
 
-            $m->to($user->email, $user->name)->subject('Your Reminder!');
+            $m->to($user->email, $user->name)->subject('Congrats!');
         });
 
         $user->save();

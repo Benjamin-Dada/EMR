@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'mailgun'),
     //'driver' => env('mandrill', 'smtp'),
 
     /*
@@ -56,7 +56,7 @@ ed globally for all e-mails that are sent by your application.
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => "benjamin.o.dada@gmail.com", 'name' => "Admin"],
 
     /*
     |--------------------------------------------------------------------------
@@ -109,5 +109,7 @@ ed globally for all e-mails that are sent by your application.
     */
 
     'sendmail' => '/usr/sbin/sendmail -bs',
+
+    'pretend' => false,
 
 ];
