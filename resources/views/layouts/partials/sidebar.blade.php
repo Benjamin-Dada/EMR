@@ -4,7 +4,10 @@
     <div class="pull-left" style="padding-bottom: 10px;">
         <img src="{{asset('/images/Img/user8-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
     </div>
-    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px;">{{Auth::user()->name}}<br><small>Admin</small></div>
+    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px;">
+        {{Auth::user()->name}} <br>
+        <small><i class="fa fa-circle text-success"></i> Admin</small>
+    </div>
     @endif
 
     @if(Auth::user()->role==="1")

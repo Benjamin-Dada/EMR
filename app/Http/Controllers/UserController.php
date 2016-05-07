@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Mail;
+
 use App\User;
 
 use App\Http\Requests;
 
 class UserController extends Controller
 {
+
 	public function index()
 	{
     	return view('user.register');
@@ -30,7 +33,15 @@ class UserController extends Controller
     	$user->email = $request->input('email');
     	$user->password = bcrypt($request->input('password'));
 
-    	$user->save();
+        $token = csrf_token();
+
+        Mail::send('email.welcome', ['user' => $user, 'token' => $token], function ($m) use ($user) {
+            $m->from('hello@app.com', 'Your Application');
+
+            $m->to($user->email, $user->name)->subject('Your Reminder!');
+        });
+
+        $user->save();
 
     	return redirect()->route('patients.index')->with('success','New User has successfully been created');
     }
