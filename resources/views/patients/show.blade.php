@@ -16,7 +16,7 @@
       <br>
       <strong> Status: </strong> {{$patient->marital_stat}}
       <br>
-      <strong> Date of Birth: </strong> {{$patient->DOB}}
+      <strong> Date of Birth: </strong> {{ date( 'F d, Y',strtotime($patient->DOB))}}
       <br>
       <strong> Telephone: </strong> {{$patient->phone}}
       <br>
@@ -40,7 +40,7 @@
       <br>
       <strong> Height: </strong> {{$patient->patientvitals->height}}
       <br>
-      <strong> Temperature: </strong> {{$patient->patientvitals->temp}}
+      <strong> BMI: </strong> {{$patient->patientvitals->BMI}}
       <br>
       <strong> Created at: </strong> {{$patient->patientvitals->created_at}}
       <br><br>
