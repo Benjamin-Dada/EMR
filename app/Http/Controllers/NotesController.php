@@ -14,7 +14,6 @@ class NotesController extends Controller
 {
  	public function index(Patient $patient)
  	{
-      
         //dd($patient);
  		return view('doctor.notes', compact('patient'));
  	}

@@ -20,3 +20,10 @@
 </div>
 @endif
 
+@if(session()->has('danger'))
+<div class="alert alert-warning" role="alert">
+	 <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+	{{ session() -> get('warning')}}
+</div>
+@endif
+

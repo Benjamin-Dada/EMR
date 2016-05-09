@@ -32,7 +32,7 @@
             <div class="alert alert-warning">
             <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
             There are currently no Patients to dispense drugs to, still in doubt? Check-in with the Doctor. &nbsp;
-            <a href="mailto: doctor@emr.com" class="btn btn-info">Mail Doctor</a> 
+            <a href="mailto: doctor@emr.com" class="btn btn-info"><i class="fa fa-envelope-o" aria-hidden="true"></i>Mail Doctor</a> 
             </div>
             @endif
 

@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Note extends Model
 {
-    //protected $table = 'consultation_notes';
+    /*import carbon before you start use
+    protected $dates = 'non-carbon dates';*/
 
     protected $fillable =[
     	'patient_id','notes', 'prescription', 'test', 'whomToSee'

@@ -1,18 +1,20 @@
-.navbar-default .navbar-nav > li > a {
+/*.navbar-default .navbar-nav > li > a {
   color: black;
 }
 .navbar-default .navbar-nav > li > a:hover {
   color: #d3d3d3;
-}
+}*/
 .navbar-fixed-top .nav {
-    padding: 10px 0;
+    padding: 5px 0;
 }
+/* remove the color of nav background-color: #3c8dbc;*/
 .navbar-default{
   background-color: #3c8dbc;
   color: #ffffff;
 }
+
 .navbar-default a{
-  color: #ffffff;
+  color: #fff;
 }
 /*work on logo*/
 @media (max-width: 767px) { 
@@ -40,9 +42,9 @@ a {
  * Top navigation
  * Hide default border to remove 1px line.
  */
-/*.navbar-fixed-top {
+.navbar-fixed-top {
   border: 0;
-}*/
+}
 /*edit*/
 
 
@@ -81,6 +83,12 @@ a {
   padding-right: 20px;
   padding-left: 20px;
 }
+
+.nav-sidebar > li > a > .fa {
+  padding-right: 10px;
+}
+
+
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {

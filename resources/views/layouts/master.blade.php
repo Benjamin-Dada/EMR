@@ -23,12 +23,12 @@
   <style>
     body {
       font-family: 'Lato';
-    }
+  }
 
-    .fa-btn {
+  .fa-btn {
       margin-right: 6px;
-    }
-  </style>
+  }
+</style>
 </head>
 <body id="app-layout">
   <div class="keyline"></div>
@@ -42,63 +42,52 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </button>
+      </button>
 
-        <!-- Branding Image -->
-        <a class="navbar-brand" href="{{ url('/') }}">
+      <!-- Branding Image -->
+      <a class="navbar-brand" href="{{ url('/') }}">
           <img src="{{asset('images/logo.gif')}}" alt="EMR" height="45" weight="45" class="hidden-xs">
           <img src="{{asset('images/logo.gif')}}" alt="EMR" height="45" weight="45" class="visible-xs">
-        </a>
-               <!--  <a href="{{ url('/') }}" class="pull-left">
-                    <img src="{{asset('images/logo.jpg')}}">
-                  </a> -->
-                </div>
+      </a>
+     </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                  <!-- Left Side Of Navbar -->
-                <!-- <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                </ul>
-              -->
-              @if (!Auth::check())
-              <!-- Right Side Of Navbar -->
-              <ul class="nav navbar-nav navbar-right">
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            
+            <!-- Right Side Of Navbar -->
+            <ul class="nav navbar-nav navbar-right">
 
+            @if(Auth::guest())
                 <!-- Authentication Links -->
                 <li><a href="{{ url('/login') }}">Login</a></li>
-                <!-- <li><a href="{{ url('/register') }}">Register</a></li> -->
-              </ul>
-              @else       
-
-              <ul class="nav navbar-nav navbar-right">
-
+            @else       
                 @can('create-user')
                 <li><a href="{{ url('users/register') }}">Register</a></li>
                 @endcan
 
                 <li class="dropdown">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                  {{Auth::user()->name}} <span class="caret"></span>
-                </a>
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                      {{ Auth::user()->name }} <span class="caret"></span>
+                  </a>
 
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                </ul>
-              </li>
-             </ul>
-            @endif
-          </div>
-        </div>
-      </nav>
+                      <ul class="dropdown-menu" role="menu">
+                          <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                      </ul>
+                </li>
+               @endif
+            </ul>
+            
+            </div>
+  </div>
+</nav>
 
-      @yield('content')
+@yield('content')
 
-      <!-- JavaScripts -->
+<!-- JavaScripts -->
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-      <script src="{{ asset('js/bootstrap.js') }}"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-      <script src="{{ asset('js/app.js') }}"></script>
-      {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
-    </body>
-    </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+{{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+</body>
+</html>

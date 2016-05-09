@@ -32,7 +32,7 @@
             <div class="alert alert-warning" role="alert">
             <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
             There are currently no Patients requiring test, still in doubt? Speak with the Doctor. &nbsp;
-            <a href="mailto: nurse@emr.com" class="btn btn-info">Mail Nurse</a> 
+            <a href="mailto: nurse@emr.com" class="btn btn-info"><i class="fa fa-envelope-o" aria-hidden="true"></i>Mail Nurse</a> 
             </div>
             @endif
 

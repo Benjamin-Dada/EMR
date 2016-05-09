@@ -22,7 +22,7 @@ Route::group(['middleware' => 'web'], function () {
     'uses'=>'UserController@index',
     'as'=>'user.index'
     ]);
-    Route::post('user/register', [
+    Route::post('users/register', [
         'uses' => 'UserController@store',
         'as' => 'user.store'
     ]);

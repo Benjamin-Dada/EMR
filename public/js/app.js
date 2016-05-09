@@ -5,15 +5,15 @@ $(document).ready(function() {
              }
       });
 
-    /*$('li').on('click', function(){
+    $('li').on('click', function(){
         //remove the class from the currently active class.
-         $(this).addClass('active');
-    });*/
+         $(this).addClass('active open');
+    });
     $("button.delete").on('click', function(e){
         e.preventDefault();
         if ( ! confirm('Are you sure?')) {
             return false;
-        }
+        }   
         var action = $(this).data("action");
         var parent = $(this).parent();
         var token  = $(this).data("token");
