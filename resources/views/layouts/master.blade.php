@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="_token" content = "{{ csrf_token() }}">
+  <meta name="description" content="Project-emr is aimed at managing the patient lifecycle from the time he enters the records department till he collects his last treatment">
+  <meta name="keywords" content="Benjamin, project-emr, EMR, undergraduate health project, Covenant University, MIS, Benjamin Dada">
 
   <title>EMR - @yield('title', 'by 12CH014339')</title>
   
