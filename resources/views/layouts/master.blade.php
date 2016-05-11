@@ -28,7 +28,8 @@
   .fa-btn {
       margin-right: 6px;
   }
-</style>
+  </style>
+  @include('layouts.partials.googleanalytics')
 </head>
 <body id="app-layout">
   <div class="keyline"></div>
@@ -44,7 +45,7 @@
 <script src="{{ asset('js/app.js') }}"></script>
 {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
-@include('layouts.partials.googleanalytics')
+
 
 </body>
 </html>
