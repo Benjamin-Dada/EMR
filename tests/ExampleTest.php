@@ -15,5 +15,8 @@ class ExampleTest extends TestCase
     {
         $this->visit('/')
              ->see('login');
+
+        $this->visit('patients')
+            ->see('table');
     }
 }

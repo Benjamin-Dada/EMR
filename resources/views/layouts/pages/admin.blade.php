@@ -4,7 +4,7 @@
         
         <h1 class="page-header"> 
         List of Users
-        <a href="{{ route('user.create') }}" class="btn btn-info">New User</a>
+        <a href="{{ route('user.index') }}" class="btn btn-info">New User</a>
         </h1>
         @include('layouts.partials.alerts')
         <table class="table table-striped table-bordered">
