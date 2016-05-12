@@ -39,7 +39,7 @@ class UserController extends Controller
         $token = null;
 
         Mail::send('email.welcome', ['user' => $user, 'token' => $token], function ($m) use ($user) {
-            $m->from('benjamindada04@yahoo.com', 'Your Admin');
+            $m->from('benjamin.o.dada', 'Your Admin');
 
             $m->to($user->email, $user->name)->subject('Congrats!');
         });
