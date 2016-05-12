@@ -4,11 +4,13 @@
 
 @if(!Auth::check())
 @section('title', 'Restricted')
-<div class="container">
-    <div class="row">
-     <h1>Please Log in</h1>
-    </div>
-</div>
+
+<div style="height: 100%; text-align: center; vertical-align: middle; padding-top: 250px;"> 
+<div style="font-size: 72px;">Sorry, not sorry.<br> You don't have the right to view this page.</div>
+
+<a href="/" class="btn btn-primary"><i class="fa fa-hospital-o" aria-hidden="true"></i>
+    Go Home</a></div>
+
 @endif
 
 

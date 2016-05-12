@@ -14,7 +14,10 @@ use App\Http\Requests;
 
 class UserController extends Controller
 {
-
+    public function __construct()
+    {
+       $this->middleware('admin',['only'=>'index']);
+    }
     
 	public function index()
 	{

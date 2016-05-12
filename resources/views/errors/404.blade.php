@@ -8,4 +8,4 @@
 <a href="/" class="btn btn-primary"><i class="fa fa-hospital-o" aria-hidden="true"></i>
     Go Home</a></div>
 
-    @stop
+@stop

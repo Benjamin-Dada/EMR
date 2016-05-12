@@ -4,6 +4,7 @@
         
         <h1 class="page-header"> 
         List of Users
+        <a href="{{ route('user.create') }}" class="btn btn-info">New User</a>
         </h1>
         @include('layouts.partials.alerts')
         <table class="table table-striped table-bordered">
@@ -17,9 +18,9 @@
             <tbody>
                 @foreach($users as $user)
                 <tr> 
-                <td> {{ $user->id }}</td> 
-                <td>{{$user->name}}</td>
-                <td>{{$user->role}}</td>
+                <td>{{ $user->id }}</td> 
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->role }}</td>
                 </tr>
                 
                 @endforeach
