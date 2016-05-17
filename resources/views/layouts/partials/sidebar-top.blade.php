@@ -1,4 +1,4 @@
- @if(Auth::user()->role === "0")
+ @if(Auth::user()->role === "Admin")
     <div class="pull-left" style="padding-bottom: 10px;">
         <img src="{{asset('/images/Img/user8-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
     </div>
@@ -8,36 +8,36 @@
     </div>
     @endif
 
-    @if(Auth::user()->role==="1")
+    @if(Auth::user()->role==="Records Officer")
     <div class="pull-left" style="padding-bottom: 10px;">    
         <img src="{{asset('/images/Img/user7-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
     </div>
-    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Front Desk</small></div>
+    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Records Officer</small></div>
     @endif
 
-    @if(Auth::user()->role==="2")
+    @if(Auth::user()->role==="Nurse")
     <div class="pull-left" style="padding-bottom: 10px;"> 
         <img src="{{asset('/images/Img/user5-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
      </div>
     <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Nurse</small></div>
     @endif
 
-    @if(Auth::user()->role==="3" ) 
+    @if(Auth::user()->role==="Doctor" ) 
     <div class="pull-left" style="padding-bottom: 10px;"> 
         <img src="{{asset('/images/Img/user6-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
     </div>
     <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small><i class="icon-stethoscope"></i> Doctor</small></div>
     @endif
 
-    @if(Auth::user()->role==="4" ) 
+    @if(Auth::user()->role==="Lab Attendant" ) 
     <div class="pull-left" style="padding-bottom: 10px;"> 
         <img src="{{asset('/images/Img/user6-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
     </div>
-    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Lab</small></div>
+    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Lab Attendant</small></div>
     @endif
-    @if(Auth::user()->role==="5" ) 
+    @if(Auth::user()->role==="Pharmacist" ) 
     <div class="pull-left" style="padding-bottom: 10px;"> 
         <img src="{{asset('/images/Img/user6-128x128.jpg')}}" class="img-circle" alt="User Image" height="50" weight="50" />
     </div>
-    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Pharmacy</small></div>
+    <div style="color: #fff; position: absolute; left: 65px; padding: 5px 5px 5px 20px; ">{{Auth::user()->name}}<br><small>Pharmacist</small></div>
     @endif

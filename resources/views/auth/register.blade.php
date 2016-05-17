@@ -34,7 +34,7 @@
                                 <select name="role" class="form-control" id="role" >
                                     <option value="">Choose a Department</option>
                                     <option value="0">Admin</option>
-                                    <option value="1">Front Desk</option>
+                                    <option value="1">Front esk</option>
                                     <option value="2">Nurse</option>
                                     <option value="3">Doctor</option>
                                     <option value="4">Laboratory</option>

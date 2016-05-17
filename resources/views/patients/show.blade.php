@@ -6,7 +6,7 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-3 main">
   @include('layouts.partials.alerts')
   @if( $patient )
-  @if(Auth::user()->role === "1")
+  @if(Auth::user()->role === "Records Officer")
   <h1 class="page-header"> Patient Details </h1>
   <div class="panel panel-default">
     <div class="panel-heading"> <strong> {!! $patient->name !!} </strong></div>
@@ -28,7 +28,7 @@
 <p><a href="{{route('patients.edit',$patient->id)}}" class="btn btn-primary">Edit Registration Details</a></p>
 @endif
 
-@if(Auth::user()->role === "2")
+@if(Auth::user()->role === "Nurse")
 <h1 class="page-header"> Patient Vitals </h1>
 <div class="panel panel-default">
     <div class="panel-heading"> <strong> {!! $patient->name !!} </strong></div>
@@ -57,11 +57,11 @@
 
 @endif
 
-@if(Auth::user()->role === "3")
+@if(Auth::user()->role === "Doctor")
   @include('layouts.pages.doctor.show')
 @endif
 
-@if(Auth::user()->role === "4")
+@if(Auth::user()->role === "Lab Attendant")
 <h1 class="page-header"> Test Requested by Doctor </h1>
 <div class="panel panel-default">
     <div class="panel-heading"> <strong> {{ $patient->name }} </strong></div>
@@ -78,7 +78,7 @@
 </div>
 @endif
 
-@if(Auth::user()->role === "5" )
+@if(Auth::user()->role === "Pharmacist" )
 <h1 class="page-header"> Drug Prescribed by Doctor </h1>
 <div class="panel panel-default">
     <div class="panel-heading"> <strong> {!! $patient->name !!} </strong></div>

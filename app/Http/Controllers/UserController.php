@@ -41,10 +41,12 @@ class UserController extends Controller
 
         $token = null;
 
-        Mail::send('email.welcome', ['user' => $user, 'token' => $token], function ($m) use ($user) {
-            $m->from('benjamin.o.dada@gmail.com', 'Your Admin');
+        $data = ['token' => $token, 'user' => $user];
 
-            $m->to($user->email, $user->name)->subject('Congrats!');
+        Mail::send('emails.welcome', ['user' => $user, 'token' => $token], function ($m) use ($user) {
+            $m->from('benjamin.o.dada@gmail.com', 'Admin');
+
+            $m->to($user->email, $user->name)->subject('Welcome to Project EMR');
         });
 
         $user->save();

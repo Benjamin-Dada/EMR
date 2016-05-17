@@ -34,12 +34,12 @@
                             <div class="col-md-6">
                                 <select name="role" class="form-control" id="role" >
                                     <option value="">Choose a Department</option>
-                                    <option value="0">Admin</option>
-                                    <option value="1">Front Desk</option>
-                                    <option value="2">Nurse</option>
-                                    <option value="3">Doctor</option>
-                                    <option value="4">Laboratory</option>
-                                    <option value="5">Pharmacy</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Records Officer">Front Desk</option>
+                                    <option value="Nurse">Nurse</option>
+                                    <option value="Doctor">Doctor</option>
+                                    <option value="Lab Attendant">Laboratory</option>
+                                    <option value="Pharmacist">Pharmacy</option>
                                 </select>
                                 @if ($errors->has('role'))
                                     <span class="help-block">

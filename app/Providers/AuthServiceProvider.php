@@ -27,11 +27,11 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies($gate);
         //only admin
         $gate->define('create-user', function($user){
-            return $user->role==="0";
+            return $user->role === "Admin";
         });
         //only front desk
         $gate->define('create-patient', function($user){
-            return $user->role==="1";
+            return $user->role==="Records Officer";
         });
         
     }

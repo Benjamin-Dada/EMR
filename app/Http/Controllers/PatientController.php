@@ -6,15 +6,9 @@ use Illuminate\Http\Request;
 
 use Auth;
 
-use App\User;
+use App\User; use App\Patient;
 
-use App\Patient;
-
-use App\Vital;
-
-use App\Test;
-
-use App\Note;
+use App\Vital; use App\Test; use App\Note;
 
 use App\Http\Requests;
 
@@ -32,11 +26,11 @@ class PatientController extends Controller
         $users = User::all();
        // $users = User::orderBy('role','asc')->get();
 
-        $forRecords = Patient::where('whomToSee', '1')->get();
-        $forNurse = Patient::where('whomToSee', '2')->get();
-        $forDoctor = Vital::where('whomToSee', '3')->get();
-        $forLab = Note::where('whomToSee', '4')->get();
-        $forPharmacy = Note::where('whomToSee', '5')->get();
+        $forRecords = Patient::where('whomToSee', 'Records Officer')->get();
+        $forNurse = Patient::where('whomToSee', 'Nurse')->get();
+        $forDoctor = Vital::where('whomToSee', 'Doctor')->get();
+        $forLab = Note::where('whomToSee', 'Lab Attendant')->get();
+        $forPharmacy = Note::where('whomToSee', 'Pharmacist')->get();
         
         return view('patients.index', compact(['patient', 'users', 'forRecords', 'forNurse', 'forDoctor', 'forLab', 'forPharmacy']));  
 

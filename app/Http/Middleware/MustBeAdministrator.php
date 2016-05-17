@@ -16,7 +16,7 @@ class MustBeAdministrator
     public function handle($request, Closure $next)
     {
         $user = $request -> user();
-        if ($user && $user->role==="0") {
+        if ($user && $user->role === "Admin") {
             return $next($request);
         }
         //return $next($request);
