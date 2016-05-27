@@ -16,15 +16,15 @@
 
 @if(Auth::check())
 
-    @if(Auth::user()->role === "0")
+    @if(Auth::user()->role === "Admin")
         @include('layouts.pages.admin')
-    @elseif(Auth::user()->role === "2")
+    @elseif(Auth::user()->role === "Nurse")
         @include('layouts.pages.nurse')
-    @elseif(Auth::user()->role === "3")
+    @elseif(Auth::user()->role === "Doctor")
         @include('layouts.pages.doctor')
-    @elseif(Auth::user()->role === "4")
+    @elseif(Auth::user()->role === "Laboratory")
         @include('layouts.pages.lab')
-    @elseif(Auth::user()->role === "5")
+    @elseif(Auth::user()->role === "Pharmacy")
         @include('layouts.pages.pharmacy')
     @else
         @include('layouts.pages.records')
