@@ -30,22 +30,22 @@
   .fa-btn {
       margin-right: 6px;
   }
-  </style>
-  @include('layouts.partials.googleanalytics')
+</style>
+@include('layouts.partials.googleanalytics')
 </head>
 <body id="app-layout">
   <div class="keyline"></div>
   @include('layouts.partials.nav')
 
-@yield('content')
+  @yield('content')
 
-<!-- JavaScripts -->
+  <!-- JavaScripts -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="{{ asset('js/bootstrap.js') }}"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="{{ asset('js/app.js') }}"></script>
-{{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="{{ asset('js/bootstrap.js') }}"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="{{ asset('js/app.js') }}"></script>
+  {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
 
 
